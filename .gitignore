@@ -1,0 +1,20 @@
+# Secretos y variables de entorno
+.env
+Key API.txt
+
+# Datos personales del paciente
+medicamentos*.json
+
+# Dependencias
+node_modules/
+
+# Carpetas de imágenes duplicadas / fuentes originales
+ejercicios/
+imagenes ejercicios/
+
+# Claude Code
+.claude/
+
+# Logs
+*.log
+npm-debug.log*

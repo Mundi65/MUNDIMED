@@ -1,0 +1,38 @@
+-- Ejecutar en Supabase → SQL Editor
+
+CREATE TABLE IF NOT EXISTS profiles (
+  user_id TEXT PRIMARY KEY,
+  data JSONB NOT NULL DEFAULT '{}',
+  updated_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS medications (
+  user_id TEXT PRIMARY KEY,
+  meds JSONB NOT NULL DEFAULT '[]',
+  doses JSONB NOT NULL DEFAULT '[]',
+  updated_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS meals (
+  user_id TEXT PRIMARY KEY,
+  data JSONB NOT NULL DEFAULT '[]',
+  updated_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS vitals (
+  user_id TEXT PRIMARY KEY,
+  data JSONB NOT NULL DEFAULT '[]',
+  updated_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS exams (
+  user_id TEXT PRIMARY KEY,
+  data JSONB NOT NULL DEFAULT '[]',
+  updated_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS exercise (
+  user_id TEXT PRIMARY KEY,
+  data JSONB NOT NULL DEFAULT '[]',
+  updated_at TIMESTAMPTZ DEFAULT NOW()
+);

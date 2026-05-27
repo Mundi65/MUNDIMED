@@ -1,0 +1,1624 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<meta name="apple-mobile-web-app-title" content="MUNDIMED"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="theme-color" content="#0f2040"/>
+<link rel="manifest" href="/manifest.json"/>
+<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjEwMCIgZmlsbD0iIzBmMjA0MCIvPgogIDxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiByeD0iMTAwIiBmaWxsPSJ1cmwoI2dyYWQpIi8+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImdyYWQiIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzBmMjA0MCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwYTMwNjAiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDwhLS0gQ3Jvc3MvbWVkaWNhbCBzeW1ib2wgLS0+CiAgPHJlY3QgeD0iMjIwIiB5PSIxMzAiIHdpZHRoPSI3MiIgaGVpZ2h0PSIyNTIiIHJ4PSIyMCIgZmlsbD0iIzAwZDRhYSIvPgogIDxyZWN0IHg9IjEzMCIgeT0iMjIwIiB3aWR0aD0iMjUyIiBoZWlnaHQ9IjcyIiByeD0iMjAiIGZpbGw9IiMwMGQ0YWEiLz4KICA8IS0tIEhlYXJ0IHB1bHNlIGxpbmUgLS0+CiAgPHBvbHlsaW5lIHBvaW50cz0iMTAwLDM1MCAxNjAsMzUwIDE4NSwyOTAgMjE1LDM4MCAyNDAsMzEwIDI2NSwzNjAgMjk1LDM1MCA0MTIsMzUwIiAKICAgIHN0cm9rZT0iI2ZmNmIzNSIgc3Ryb2tlLXdpZHRoPSIxOCIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPg=="/>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjEwMCIgZmlsbD0iIzBmMjA0MCIvPgogIDxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiByeD0iMTAwIiBmaWxsPSJ1cmwoI2dyYWQpIi8+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImdyYWQiIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzBmMjA0MCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwYTMwNjAiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDwhLS0gQ3Jvc3MvbWVkaWNhbCBzeW1ib2wgLS0+CiAgPHJlY3QgeD0iMjIwIiB5PSIxMzAiIHdpZHRoPSI3MiIgaGVpZ2h0PSIyNTIiIHJ4PSIyMCIgZmlsbD0iIzAwZDRhYSIvPgogIDxyZWN0IHg9IjEzMCIgeT0iMjIwIiB3aWR0aD0iMjUyIiBoZWlnaHQ9IjcyIiByeD0iMjAiIGZpbGw9IiMwMGQ0YWEiLz4KICA8IS0tIEhlYXJ0IHB1bHNlIGxpbmUgLS0+CiAgPHBvbHlsaW5lIHBvaW50cz0iMTAwLDM1MCAxNjAsMzUwIDE4NSwyOTAgMjE1LDM4MCAyNDAsMzEwIDI2NSwzNjAgMjk1LDM1MCA0MTIsMzUwIiAKICAgIHN0cm9rZT0iI2ZmNmIzNSIgc3Ryb2tlLXdpZHRoPSIxOCIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPg=="/>
+<title>MUNDIMED</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0a1628;--sur:#0f2040;--card:#162a4a;--bdr:#1e3a5f;--pri:#00d4aa;--acc:#ff6b35;--wrn:#f59e0b;--dng:#ef4444;--ok:#10b981;--pur:#8b5cf6;--pnk:#ec4899;--txt:#e8f4f8;--mut:#8ba3bf;--dim:#3a5a7a}
+html,body{height:100%;font-family:"DM Sans",sans-serif;background:var(--bg);color:var(--txt);overflow-x:hidden}
+#app{max-width:520px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column}
+.hdr{background:linear-gradient(135deg,#0f2040,#0a3050);padding:14px 18px;border-bottom:1px solid var(--bdr);position:sticky;top:0;z-index:100}
+.logo{font-size:21px;font-weight:700;letter-spacing:-.5px}
+.logo em{color:var(--pri);font-style:normal}.logo b{color:var(--acc);font-weight:700}
+.qs{background:var(--card);border-bottom:1px solid var(--bdr);display:flex;overflow-x:auto}
+.qi{flex:0 0 auto;padding:6px 12px;text-align:center;border-right:1px solid var(--bdr)}
+.qi:last-child{border-right:none}
+.qv{font-size:14px;font-weight:700}.ql{font-size:9px;color:var(--mut);white-space:nowrap}
+.bnav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:520px;background:#0b1930;border-top:1px solid var(--bdr);display:flex;overflow-x:auto;z-index:100;scrollbar-width:none}
+.bnav::-webkit-scrollbar{display:none}
+.nb{flex:0 0 auto;min-width:52px;padding:6px 2px;background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:1px;font-family:"DM Sans",sans-serif}
+.nb span:first-child{font-size:16px}
+.nl{font-size:8px;color:var(--mut)}
+.nb.on .nl{color:var(--pri);font-weight:700}
+.nd{width:16px;height:2px;background:var(--pri);border-radius:1px;margin-top:1px;opacity:0}
+.nb.on .nd{opacity:1}
+.ct{flex:1;padding:16px;padding-bottom:80px;overflow-y:auto}
+.card{background:var(--card);border:1px solid var(--bdr);border-radius:12px;padding:14px;margin-bottom:10px}
+.ctt{font-size:14px;font-weight:700;margin-bottom:12px}
+.fg{margin-bottom:10px}
+.lb{font-size:11px;color:var(--mut);display:block;margin-bottom:4px;font-weight:500}
+input,select,textarea{width:100%;background:var(--sur);border:1px solid var(--bdr);border-radius:8px;padding:9px 11px;color:var(--txt);font-size:13px;font-family:"DM Sans",sans-serif;outline:none}
+input:focus,select:focus,textarea:focus{border-color:var(--pri)}
+select option{background:var(--sur)}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+.btn{border:none;border-radius:8px;padding:9px 16px;font-weight:600;font-size:13px;cursor:pointer;font-family:"DM Sans",sans-serif;display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.bp{background:var(--pri);color:#0a1628}
+.bg{background:transparent;color:var(--mut);border:1px solid var(--bdr)}
+.bd{background:#7f1d1d;color:#fca5a5;border:1px solid #ef444440}
+.bw{background:#25D366;color:#fff}
+.bf{width:100%;padding:12px}
+.bs{padding:5px 10px;font-size:11px;border-radius:6px}
+.pill{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:600}
+.pk{background:#052e1650;color:#86efac;border:1px solid #10b98140}
+.pw{background:#78350f40;color:#fcd34d;border:1px solid #f59e0b40}
+.pd{background:#7f1d1d40;color:#fca5a5;border:1px solid #ef444440}
+.pr{margin-bottom:8px}
+.ph{display:flex;justify-content:space-between;margin-bottom:4px;font-size:11px}
+.pt{height:6px;background:var(--bdr);border-radius:3px;overflow:hidden}
+.pf{height:100%;border-radius:3px;transition:width .4s}
+.ov{position:fixed;inset:0;background:#000b;z-index:200;display:flex;align-items:flex-end;justify-content:center}
+.mo{background:var(--sur);border-radius:16px 16px 0 0;padding:18px;width:100%;max-width:520px;max-height:90vh;overflow-y:auto}
+.moh{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.mc{background:none;border:none;color:var(--mut);font-size:22px;cursor:pointer;line-height:1}
+.tb{display:flex;gap:8px;margin-bottom:12px}
+.tbb{flex:1;padding:8px;border-radius:8px;border:1.5px solid var(--bdr);background:transparent;color:var(--mut);font-size:12px;cursor:pointer;font-family:"DM Sans",sans-serif;text-align:center}
+.tbb.on{border-color:var(--pri);background:rgba(0,212,170,.12);color:var(--pri);font-weight:700}
+.sb{background:var(--sur);border-radius:8px;padding:10px;text-align:center}
+.sv{font-size:20px;font-weight:700}.sl{font-size:10px;color:var(--mut)}
+.al{padding:10px 12px;border-radius:8px;font-size:12px;margin-bottom:10px}
+.ai{background:#0a3050;border:1px solid rgba(0,212,170,.25);color:var(--pri)}
+.aw{background:#78350f30;border:1px solid rgba(245,158,11,.25);color:#fcd34d}
+.dc{padding:5px 12px;border-radius:20px;border:2px solid var(--bdr);background:transparent;color:var(--mut);font-size:11px;cursor:pointer;font-family:"DM Sans",sans-serif;font-weight:500;display:inline-flex;align-items:center;gap:4px}
+.dc.tk{border-color:var(--ok);background:rgba(16,185,129,.15);color:var(--ok)}
+.empty{text-align:center;padding:50px 20px;color:var(--mut)}
+.ei{font-size:40px;margin-bottom:10px}
+.cw{position:relative;height:200px;margin:8px 0}
+::-webkit-scrollbar{width:4px;height:4px}::-webkit-scrollbar-track{background:var(--sur)}::-webkit-scrollbar-thumb{background:var(--dim);border-radius:2px}
+.tc-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+</style>
+</head>
+<body>
+<div id="app">
+  <div class="hdr">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <div><div class="logo"><em>MUNDI</em><b>MED</b> <span style="font-size:11px;color:var(--pri);font-weight:400;letter-spacing:0">v2.0 ☁️</span></div><div style="font-size:11px;color:var(--mut);margin-top:2px" id="pName">Monitor de Salud Personal</div></div>
+      <div style="font-size:11px;color:var(--mut);text-align:right" id="hDate"></div>
+    </div>
+  </div>
+  <div class="qs" id="qsBar" style="display:none"></div>
+  <div class="ct" id="main"></div>
+  <nav class="bnav" id="nav"></nav>
+</div>
+<script>
+
+// STORAGE
+const S={get:(k,d=null)=>{try{const v=localStorage.getItem(k);return v!=null?JSON.parse(v):d}catch(e){return d}},set:(k,v)=>localStorage.setItem(k,JSON.stringify(v))};
+const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,5);
+const today=()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
+const nowt=()=>new Date().toTimeString().slice(0,5);
+const fd=(d)=>{if(!d)return'—';return new Date(d+'T12:00').toLocaleDateString('es-EC',{day:'2-digit',month:'short'})};
+const fdl=(d)=>{if(!d)return'—';return new Date(d+'T12:00').toLocaleDateString('es-EC',{day:'2-digit',month:'long',year:'numeric'})};
+const lastNDays=(n)=>{const r=[];for(let i=n-1;i>=0;i--){const d=new Date();d.setDate(d.getDate()-i);r.push(d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'))}return r};
+const PERIODS=[[7,'7d'],[15,'15d'],[30,'30d'],[90,'3m'],[180,'6m'],[365,'1a']];
+function periodBtns(cur,varName){return'<div class="tb">'+PERIODS.map(function(p){return'<button class="tbb'+(cur===p[0]?' on':'')+'" onclick="'+varName+'='+p[0]+';render()">'+p[1]+'</button>'}).join('')+'</div>';}
+function groupByWeek(days,getFn){var out=[];for(var i=0;i<days.length;i+=7){var chunk=days.slice(i,i+7);var vals=chunk.map(getFn).filter(function(v){return v!==null&&!isNaN(v)});out.push({lbl:fd(chunk[0])+(chunk.length>1?'–'+fd(chunk[chunk.length-1]):''),vals:vals,avg:vals.length?vals.reduce(function(s,v){return s+v},0)/vals.length:null});}return out;}
+const esc=(s)=>(s||'').toString().replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const g=(id)=>document.getElementById(id);
+const gv=(id)=>{const e=g(id);return e?e.value:''};
+const nval=(m,k)=>parseFloat((m.nutrition&&m.nutrition[k])||0)||0;
+
+// STATE
+let P=S.get('mm4_p',{name:'',age:'',sex:'',weight:'',height:'',conditions:'',tfg:'',creatinine:'',proteinLimit:'0.6',sodiumLimit:'2000',potassiumLimit:'2500',phosphorusLimit:'800',calorieGoal:'1800',cholesterolLimit:'200',doctorName:'',doctorWA:'',nutritionistWA:'',specialists:[]});
+let MEDS=S.get('mm4_meds',[]);
+let DOSES=S.get('mm4_doses',[]);
+let MEALS=S.get('mm4_meals',[]);
+let EX=S.get('mm4_ex',[]);
+let VITALS=S.get('mm4_vitals',[]);
+let EXAMS=S.get('mm4_exams',[]);
+let SLEEP=S.get('mm4_sleep',[]);
+const saveAll=()=>{S.set('mm4_p',P);S.set('mm4_meds',MEDS);S.set('mm4_doses',DOSES);S.set('mm4_meals',MEALS);S.set('mm4_ex',EX);S.set('mm4_vitals',VITALS);S.set('mm4_exams',EXAMS);S.set('mm4_sleep',SLEEP);syncToBackend();setTimeout(function(){if(typeof scheduleAlarmsInSW==='function')scheduleAlarmsInSW()},500)};
+
+// BACKEND
+const BACKEND='/api';
+const getUserId=()=>{let id=localStorage.getItem('mm4_uid');if(!id){id=uid();localStorage.setItem('mm4_uid',id)}return id};
+function syncToBackend(){fetch(BACKEND+'/sync',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({userId:getUserId(),profile:P,medications:MEDS,doses:DOSES,meals:MEALS,exercise:EX,vitals:VITALS,exams:EXAMS,sleep:SLEEP})}).catch(function(e){console.warn('Sync:',e)})}
+async function loadFromBackend(){
+  try{
+    const r=await fetch(BACKEND+'/data?userId='+getUserId());
+    if(!r.ok)return;
+    const d=await r.json();
+    if(d.error)return;
+    if(d.profile&&Object.keys(d.profile).length){P=d.profile;S.set('mm4_p',P)}
+    if(Array.isArray(d.medications)&&d.medications.length){MEDS=d.medications;S.set('mm4_meds',MEDS)}
+    if(Array.isArray(d.doses)&&d.doses.length){DOSES=d.doses;S.set('mm4_doses',DOSES)}
+    if(Array.isArray(d.meals)&&d.meals.length){MEALS=d.meals;S.set('mm4_meals',MEALS)}
+    if(Array.isArray(d.exercise)&&d.exercise.length){EX=d.exercise;S.set('mm4_ex',EX)}
+    if(Array.isArray(d.vitals)&&d.vitals.length){VITALS=d.vitals;S.set('mm4_vitals',VITALS)}
+    if(Array.isArray(d.exams)&&d.exams.length){EXAMS=d.exams;S.set('mm4_exams',EXAMS)}
+    if(Array.isArray(d.sleep)&&d.sleep.length){SLEEP=d.sleep;S.set('mm4_sleep',SLEEP)}
+  }catch(e){console.warn('Load backend:',e)}
+}
+
+// EXPORT/IMPORT
+function exportData(){
+  const data={_v:4,_date:new Date().toISOString(),P,MEDS,DOSES,MEALS,EX,VITALS,EXAMS};
+  const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;a.download='MUNDIMED_'+today()+'.json';
+  document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url);
+  alert('Datos exportados. Comparte el JSON a tu otro dispositivo e importalo desde Perfil.');
+}
+function importData(ev){
+  const file=ev.target.files[0];if(!file)return;
+  const reader=new FileReader();
+  reader.onload=(e)=>{
+    try{
+      const d=JSON.parse(e.target.result);
+      if(!d.P&&!d.profile)throw new Error('invalid');
+      if(!confirm('Importar datos? Esto reemplaza los datos actuales.'))return;
+      if(d.P)P=d.P;else if(d.profile)P=d.profile;
+      if(d.MEDS)MEDS=d.MEDS;else if(d.meds)MEDS=d.meds;
+      if(d.DOSES)DOSES=d.DOSES;else if(d.doses)DOSES=d.doses;
+      if(d.MEALS)MEALS=d.MEALS;else if(d.meals)MEALS=d.meals;
+      if(d.EX)EX=d.EX;else if(d.exercise)EX=d.exercise;
+      if(d.VITALS)VITALS=d.VITALS;else if(d.vitals)VITALS=d.vitals;
+      if(d.EXAMS)EXAMS=d.EXAMS;else if(d.exams)EXAMS=d.exams;
+      saveAll();render();alert('Datos importados correctamente.');
+    }catch(err){alert('Archivo invalido.');}
+  };
+  reader.readAsText(file);ev.target.value='';
+}
+
+// TABS
+const TABS=[{id:'perfil',ic:'👤',lb:'Perfil'},{id:'meds',ic:'💊',lb:'Meds'},{id:'dieta',ic:'🥗',lb:'Dieta'},{id:'ejercicio',ic:'🚶',lb:'Ejercicio'},{id:'vitales',ic:'❤️',lb:'Vitales'},{id:'examenes',ic:'🩺',lb:'Exámenes'},{id:'graficos',ic:'📊',lb:'Gráficos'},{id:'reportes',ic:'📋',lb:'Reportes'},{id:'sueno',ic:'🌙',lb:'Sueño'},{id:'agente',ic:'🤖',lb:'Agente'}];
+let TAB='perfil';
+function navRender(){
+  g('nav').innerHTML=TABS.map(t=>'<button class="nb'+(TAB===t.id?' on':'')+'" onclick="go(\''+t.id+'\')">'+'<span>'+t.ic+'</span><span class="nl">'+t.lb+'</span><div class="nd"></div></button>').join('');
+}
+function go(tab){TAB=tab;navRender();qsRender();render()}
+
+// QUICK STATS
+function qsRender(){
+  const qs=g('qsBar');
+  if(TAB==='perfil'){qs.style.display='none';return}
+  const t=today(),tm=MEALS.filter(m=>m.date===t);
+  const totC=tm.reduce((s,m)=>s+nval(m,'calories'),0);
+  const totPr=tm.reduce((s,m)=>s+nval(m,'protein'),0);
+  const totNa=tm.reduce((s,m)=>s+nval(m,'sodium'),0);
+  const totK=tm.reduce((s,m)=>s+nval(m,'potassium'),0);
+  const totPh=tm.reduce((s,m)=>s+nval(m,'phosphorus'),0);
+  const totCh=tm.reduce((s,m)=>s+nval(m,'cholesterol'),0);
+  const totSt=EX.filter(e=>e.date===t).reduce((s,e)=>s+(parseInt(e.steps)||0),0);
+  qs.style.display='flex';
+  qs.innerHTML=[
+    {l:'Cal',v:Math.round(totC),m:parseFloat(P.calorieGoal)||1800,c:'var(--acc)'},
+    {l:'Prot',v:Math.round(totPr),m:Math.round((parseFloat(P.proteinLimit)||0.6)*(parseFloat(P.weight)||70)),c:'var(--pri)'},
+    {l:'Na',v:Math.round(totNa),m:parseFloat(P.sodiumLimit)||2000,c:'var(--wrn)'},
+    {l:'K+',v:Math.round(totK),m:parseFloat(P.potassiumLimit)||2500,c:'var(--pur)'},
+    {l:'P',v:Math.round(totPh),m:parseFloat(P.phosphorusLimit)||800,c:'var(--pnk)'},
+    {l:'Chol',v:Math.round(totCh),m:parseFloat(P.cholesterolLimit)||200,c:'var(--acc)'},
+    {l:'Pasos',v:totSt.toLocaleString(),m:0,c:'var(--ok)'}
+  ].map(s=>'<div class="qi"><div class="qv" style="color:'+(s.m&&s.v>s.m?'var(--dng)':s.c)+'">'+s.v+'</div><div class="ql">'+s.l+(s.m?'/'+s.m:'')+'</div></div>').join('');
+}
+
+// RENDER
+function render(){
+  g('hDate').textContent=new Date().toLocaleDateString('es-EC',{weekday:'short',day:'2-digit',month:'short'});
+  g('pName').textContent=P.name||'Mi Salud Personal';
+  const c=g('main');c.innerHTML='';
+  const map={perfil:rPerfil,meds:rMeds,dieta:rDieta,ejercicio:rEj,vitales:rVit,examenes:rExam,graficos:rGraf,reportes:rRep,sueno:rSueno,agente:rAgent};
+  if(map[TAB])map[TAB](c);
+}
+
+// HELPERS
+function pbar(lbl,val,max,unit,col){
+  const pct=Math.min(100,(val/max)*100);
+  const c=pct>100?'var(--dng)':pct>=80?'var(--wrn)':(col||'var(--pri)');
+  return '<div class="pr"><div class="ph"><span style="color:var(--mut)">'+lbl+'</span><span style="color:'+(pct>100?'var(--dng)':'var(--txt)')+'">'+Math.round(val)+' / '+max+' '+(unit||'')+'</span></div><div class="pt"><div class="pf" style="width:'+pct+'%;background:'+c+'"></div></div></div>';
+}
+function modal(id,title,body){return '<div class="ov" id="ov_'+id+'" onclick="if(event.target===this)cm(\''+id+'\')"><div class="mo"><div class="moh"><div style="font-size:15px;font-weight:700">'+title+'</div><button class="mc" onclick="cm(\''+id+'\')">×</button></div>'+body+'</div></div>'}
+function cm(id){const e=g('ov_'+id);if(e)e.remove()}
+function om(h){document.body.insertAdjacentHTML('beforeend',h)}
+function fg(lbl,inp){return '<div class="fg"><label class="lb">'+lbl+'</label>'+inp+'</div>'}
+function inp(id,type,ph,val){return '<input id="'+id+'" type="'+(type||'text')+'" placeholder="'+(ph||'')+'" value="'+esc(val||'')+'">';}
+function sel(id,opts,cur){return '<select id="'+id+'">'+opts.map(function(o){return'<option value="'+o[0]+'"'+(o[0]==cur?' selected':'')+'>'+o[1]+'</option>'}).join('')+'</select>'}
+
+// API
+async function callAPI(sys,userMsg,imgs,isPDF,pdfB64){
+  const r=await fetch(BACKEND+'/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({system:sys,message:userMsg,images:imgs,isPDF:isPDF,pdfB64:pdfB64})});
+  if(!r.ok){const err=await r.json();throw new Error(err.error||'Error del servidor '+r.status)}
+  const d=await r.json();
+  if(d.error)throw new Error(d.error);
+  return d.text||'';
+}
+function repairJSON(raw){
+  let s=raw.replace(/```json|```/g,'').trim();
+  const f=s.indexOf('{'),l=s.lastIndexOf('}');
+  if(f>=0&&l>f)s=s.slice(f,l+1);
+  try{return JSON.parse(s)}catch(e){}
+  s=s.replace(/,\s*([}\]])/g,'$1');
+  try{return JSON.parse(s)}catch(e){}
+  return null;
+}
+
+// PERFIL
+function rPerfil(c){
+  const bmi=P.weight&&P.height?(parseFloat(P.weight)/(Math.pow(parseFloat(P.height)/100,2))).toFixed(1):null;
+  const bc=!bmi?'var(--mut)':parseFloat(bmi)>=30?'var(--dng)':parseFloat(bmi)>=25?'var(--wrn)':'var(--ok)';
+  if(!P.name){
+    c.innerHTML='<div class="al ai">👋 Bienvenido a MUNDIMED. Completa tu perfil para comenzar.</div><div class="card" style="border-color:rgba(0,212,170,.3)"><div class="ctt">¿Ya tienes datos en otro dispositivo?</div><div style="font-size:12px;color:var(--mut);margin-bottom:10px">Importa tu archivo JSON para continuar.</div><button class="btn bp bf" onclick="g(\'impf\').click()">📥 Importar datos</button><input type="file" id="impf" accept=".json" onchange="importData(event)" style="display:none"/></div>'+perfilForm();
+    return;
+  }
+  c.innerHTML='<div class="card" style="background:linear-gradient(135deg,#0a2040,#102050)"><div style="display:flex;gap:12px;align-items:center;margin-bottom:12px"><div style="width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--pri),#0080ff);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0">'+(P.sex==='F'?'👩':'👨')+'</div><div><div style="font-size:17px;font-weight:700">'+esc(P.name)+'</div><div style="font-size:12px;color:var(--mut)">'+P.age+' años · '+(P.sex==='M'?'Masculino':'Femenino')+' · '+P.weight+'kg · '+P.height+'cm</div>'+(bmi?'<span class="pill" style="color:'+bc+';border-color:'+bc+'40;background:'+bc+'18;margin-top:4px">IMC: '+bmi+'</span>':'')+'</div></div><div style="background:rgba(255,107,53,.08);border:1px solid rgba(255,107,53,.2);border-radius:8px;padding:10px;font-size:12px"><span style="color:var(--wrn);font-weight:700">⚕️ </span>'+esc(P.conditions||'Sin condiciones registradas')+'</div></div>'
+  +'<div class="card"><div class="ctt">🩺 Parámetros Renales</div><div class="g2"><div class="sb"><div class="sv" style="color:var(--acc)">'+(P.tfg||'—')+'</div><div class="sl">TFG (mL/min)</div></div><div class="sb"><div class="sv" style="color:var(--acc)">'+(P.creatinine||'—')+'</div><div class="sl">Creatinina (mg/dL)</div></div></div></div>'
+  +'<div class="card"><div class="ctt">🎯 Límites Dietéticos</div>'+pbar('Calorías',0,parseFloat(P.calorieGoal)||1800,'kcal','var(--acc)')+pbar('Proteína',0,Math.round((parseFloat(P.proteinLimit)||0.6)*(parseFloat(P.weight)||70)),'g','var(--pri)')+pbar('Sodio',0,parseFloat(P.sodiumLimit)||2000,'mg','var(--wrn)')+pbar('Potasio',0,parseFloat(P.potassiumLimit)||2500,'mg','var(--pur)')+pbar('Fósforo',0,parseFloat(P.phosphorusLimit)||800,'mg','var(--pnk)')+'<div style="font-size:11px;color:var(--mut);text-align:center;margin-top:6px">Registra comidas en Dieta para ver el avance</div></div>'
+  +'<div class="card"><div class="ctt">📱 Médico</div><div style="font-size:13px"><span style="color:var(--mut)">Médico: </span>'+esc(P.doctorName||'—')+' <span style="color:var(--dim)">· WA: '+(P.doctorWA||'no configurado')+'</span></div></div>'
+  +'<button class="btn bp bf" onclick="openPEdit()">✏️ Editar Perfil</button>'
+  +'<div class="card" style="margin-top:10px;border-color:rgba(0,212,170,.25)"><div class="ctt">🔄 Sincronizar</div><div style="font-size:12px;color:var(--mut);margin-bottom:12px">Exporta tus datos y compártelos para usarlos en otro dispositivo.</div><div class="g2" style="margin-bottom:8px"><button class="btn bp" onclick="exportData()">📤 Exportar</button><button class="btn bg" onclick="g(\'impf2\').click()">📥 Importar</button></div><input type="file" id="impf2" accept=".json" onchange="importData(event)" style="display:none"/></div>';
+}
+function perfilForm(){
+  return '<div class="card"><div class="ctt">👤 Datos Personales</div>'+fg('Nombre',inp('pn','text','Tu nombre',P.name))+'<div class="g2">'+fg('Edad',inp('pa','number','Años',P.age))+fg('Sexo',sel('ps',[['','Seleccionar'],['M','Masculino'],['F','Femenino']],P.sex))+fg('Peso (kg)',inp('pw','number','70',P.weight))+fg('Talla (cm)',inp('ph','number','170',P.height))+'</div></div>'
+  +'<div class="card"><div class="ctt">⚕️ Condición Médica</div>'+fg('Diagnósticos','<textarea id="pc" rows="3" style="resize:vertical">'+esc(P.conditions)+'</textarea>')+'<div class="g2">'+fg('TFG (mL/min)',inp('pt','number','45',P.tfg))+fg('Creatinina (mg/dL)',inp('pcr','number','1.5',P.creatinine))+'</div></div>'
+  +'<div class="card"><div class="ctt">🎯 Límites Dietéticos</div><div class="g2">'+fg('Calorías/día',inp('pcal','number','1800',P.calorieGoal))+fg('Proteína g/kg/día',inp('ppr','number','0.6',P.proteinLimit))+fg('Sodio máx mg/día',inp('pna','number','2000',P.sodiumLimit))+fg('Potasio máx mg/día',inp('pk','number','2500',P.potassiumLimit))+fg('Fósforo máx mg/día',inp('pph','number','800',P.phosphorusLimit))+fg('Colesterol máx mg/día',inp('pch','number','200',P.cholesterolLimit))+'</div></div>'
+  +'<div class="card"><div class="ctt">📱 Contactos</div>'+fg('Médico principal',inp('pdn','text','Dr. ...',P.doctorName))+fg('WhatsApp Médico (ej: 593987654321)',inp('pdw','tel','593987654321',P.doctorWA))+fg('WhatsApp Nutricionista',inp('pnw','tel','593987654321',P.nutritionistWA))+'</div>'
+  +'<div class="card"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px"><div class="ctt" style="margin-bottom:0">🏥 Especialistas</div><button class="btn bp bs" onclick="openSpecialist()">+ Agregar</button></div><div id="splist">'+renderSpecList()+'</div></div>'
+  +'<button class="btn bp bf" onclick="savePerfil()">💾 Guardar Perfil</button>';
+}
+function openPEdit(){const c=g('main');c.innerHTML='<button class="btn bg" style="margin-bottom:12px" onclick="render()">← Cancelar</button>'+perfilForm()}
+function savePerfil(){
+  P={...P,name:gv('pn'),age:gv('pa'),sex:gv('ps'),weight:gv('pw'),height:gv('ph'),conditions:gv('pc'),tfg:gv('pt'),creatinine:gv('pcr'),calorieGoal:gv('pcal'),proteinLimit:gv('ppr'),sodiumLimit:gv('pna'),potassiumLimit:gv('pk'),phosphorusLimit:gv('pph'),cholesterolLimit:gv('pch'),doctorName:gv('pdn'),doctorWA:gv('pdw'),nutritionistWA:gv('pnw')};
+  saveAll();render();
+}
+
+// MEDICAMENTOS
+function rMeds(c){
+  const t=today(),td=DOSES.filter(d=>d.date===t),am=MEDS.filter(m=>m.active);
+  let h='';
+  var amSorted=[].concat(am).sort(function(a,b){var ta=(a.times&&a.times[0])||'99:99';var tb=(b.times&&b.times[0])||'99:99';return ta.localeCompare(tb)});
+  if(amSorted.length){
+    h+='<div class="card"><div class="ctt">💊 Toma de Hoy</div>';
+    amSorted.forEach(function(m){
+      h+='<div style="margin-bottom:12px"><div style="font-size:13px;font-weight:600;margin-bottom:6px">'+esc(m.name)+' <span style="font-size:11px;color:var(--mut)">'+m.dose+' '+m.unit+'</span></div><div style="display:flex;gap:8px;flex-wrap:wrap">';
+      ([].concat(m.times||['08:00']).sort()).forEach(function(ti){const tk=td.some(function(d){return d.medId===m.id&&d.time===ti});h+='<button class="dc'+(tk?' tk':'')+'" onclick="togDose(\''+m.id+'\',\''+ti+'\')">'+(tk?'✅':'⬜')+' '+ti+'</button>'});
+      h+='</div></div>';
+    });
+    h+='</div>';
+  }
+  h+='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px"><div style="font-size:14px;font-weight:600">Medicamentos ('+MEDS.length+')</div><button class="btn bp bs" onclick="openMed()">+ Agregar</button></div>';
+  if(!MEDS.length)h+='<div class="empty"><div class="ei">💊</div><div>Sin medicamentos registrados</div></div>';
+  var sortedMeds=[].concat(MEDS).sort(function(a,b){var ta=(a.times&&a.times[0])||'99:99';var tb=(b.times&&b.times[0])||'99:99';return ta.localeCompare(tb)});
+  sortedMeds.forEach(function(m){h+='<div class="card" style="opacity:'+(m.active?1:.5)+'"><div style="display:flex;justify-content:space-between;align-items:flex-start"><div style="flex:1"><div style="font-size:14px;font-weight:600">'+esc(m.name)+'</div><div style="font-size:12px;color:var(--mut)">'+m.dose+' '+m.unit+' · '+m.frequency+'</div>'+(m.indication?'<div style="font-size:11px;color:var(--dim)">'+esc(m.indication)+'</div>':'')+'<div style="font-size:11px;color:var(--pri);margin-top:4px">🕐 '+(m.times||[]).join(' · ')+'</div></div><div style="display:flex;gap:5px;flex-shrink:0"><button class="btn bg bs" onclick="openMed(\''+m.id+'\')">✏️</button><button class="btn bs" style="background:transparent;border:1px solid var(--bdr);color:'+(m.active?'var(--wrn)':'var(--ok)')+'" onclick="togMed(\''+m.id+'\')">'+(m.active?'⏸':'▶')+'</button><button class="btn bd bs" onclick="delMed(\''+m.id+'\')">🗑</button></div></div></div>'});
+  c.innerHTML=h;
+}
+function togDose(mid,time){const t=today();const i=DOSES.findIndex(function(d){return d.medId===mid&&d.time===time&&d.date===t});if(i>=0)DOSES.splice(i,1);else DOSES.push({id:uid(),medId:mid,date:t,time:time,taken:true});saveAll();render()}
+function togMed(id){const m=MEDS.find(function(x){return x.id===id});if(m)m.active=!m.active;saveAll();render()}
+function delMed(id){if(confirm('¿Eliminar medicamento?')){MEDS=MEDS.filter(function(x){return x.id!==id});saveAll();render()}}
+var _mt=['08:00'];
+function openMed(eid){
+  const m=eid?MEDS.find(function(x){return x.id===eid}):{name:'',dose:'',unit:'mg',frequency:'diario',times:['08:00'],indication:''};
+  _mt=[].concat(m.times||['08:00']);
+  om(modal('med',eid?'Editar Medicamento':'Nuevo Medicamento',fg('Nombre',inp('mn','text','Ej: Atorvastatina',m.name))+'<div class="g2">'+fg('Dosis',inp('md','number','20',m.dose))+fg('Unidad',sel('mu',[['mg','mg'],['mcg','mcg'],['g','g'],['mL','mL'],['UI','UI'],['comp','comp'],['cáps','cáps']],m.unit))+'</div>'+fg('Frecuencia',sel('mf',[['diario','Diario'],['2 veces al día','2 veces/día'],['3 veces al día','3 veces/día'],['semanal','Semanal'],['cada 2 días','Cada 2 días'],['cuando sea necesario','Cuando sea necesario']],m.frequency))+fg('Indicación',inp('mi','text','Para qué es',m.indication))+'<div class="fg"><label class="lb">Horarios</label><div id="mtimes"></div><button class="btn bg bs" style="margin-top:4px" onclick="addMT()">+ Horario</button></div><button class="btn bp bf" style="margin-top:8px" onclick="saveMed(\''+(eid||'')+'\')">💾 Guardar</button>'));
+  setTimeout(function(){renderMT()},0);
+}
+function renderMT(){const e=g('mtimes');if(!e)return;e.innerHTML=_mt.map(function(t,i){return'<div style="display:flex;gap:6px;margin-bottom:6px"><input type="time" value="'+t+'" onchange="_mt['+i+']=this.value" style="flex:1"/>'+(_mt.length>1?'<button class="btn bd bs" onclick="_mt.splice('+i+',1);renderMT()">−</button>':'')+'</div>'}).join('')}
+function addMT(){_mt.push('12:00');renderMT()}
+function saveMed(eid){
+  const obj={id:eid||uid(),name:gv('mn'),dose:gv('md'),unit:gv('mu'),frequency:gv('mf'),indication:gv('mi'),times:[].concat(_mt),active:true};
+  if(!obj.name)return;
+  if(eid){const i=MEDS.findIndex(function(x){return x.id===eid});if(i>=0)MEDS[i]=obj}else MEDS.push(obj);
+  saveAll();cm('med');render();
+}
+
+// DIETA
+var _dd=today();
+function rDieta(c){
+  const dm=MEALS.filter(function(m){return m.date===_dd}).sort(function(a,b){return a.time.localeCompare(b.time)});
+  const tot=dm.reduce(function(a,m){['calories','protein','carbs','fat','fiber','sodium','potassium','phosphorus','cholesterol','saturatedFat'].forEach(function(k){a[k]+=nval(m,k)});return a},{calories:0,protein:0,carbs:0,fat:0,fiber:0,sodium:0,potassium:0,phosphorus:0,cholesterol:0,saturatedFat:0});
+  const em={desayuno:'🌅',almuerzo:'☀️',merienda:'🫐',cena:'🌙',otro:'🍽️'};
+  let h='<div style="display:flex;gap:8px;align-items:center;margin-bottom:12px"><input type="date" value="'+_dd+'" onchange="_dd=this.value;render()" style="flex:1"/><button class="btn bp bs" onclick="openMeal()">+ Comida</button></div>'
+  +'<div class="card"><div class="ctt">📊 Resumen del Día</div>'
+  +pbar('Calorías',tot.calories,parseFloat(P.calorieGoal)||1800,'kcal','var(--acc)')
+  +pbar('Proteína',tot.protein,Math.round((parseFloat(P.proteinLimit)||0.6)*(parseFloat(P.weight)||70)),'g','var(--pri)')
+  +pbar('Sodio',tot.sodium,parseFloat(P.sodiumLimit)||2000,'mg','var(--wrn)')
+  +pbar('Potasio',tot.potassium,parseFloat(P.potassiumLimit)||2500,'mg','var(--pur)')
+  +pbar('Fósforo',tot.phosphorus,parseFloat(P.phosphorusLimit)||800,'mg','var(--pnk)')
+  +pbar('Colesterol',tot.cholesterol,parseFloat(P.cholesterolLimit)||200,'mg','var(--acc)')
+  +'<div style="margin-top:8px;padding-top:8px;border-top:1px solid var(--bdr);display:flex;gap:6px;flex-wrap:wrap">'
+  +'<div style="background:var(--sur);border-radius:6px;padding:4px 10px;font-size:11px"><span style="font-weight:600">'+Math.round(tot.carbs)+'</span><span style="color:var(--dim)"> g carb</span></div>'
+  +'<div style="background:var(--sur);border-radius:6px;padding:4px 10px;font-size:11px"><span style="font-weight:600">'+Math.round(tot.fat)+'</span><span style="color:var(--dim)"> g grasa</span></div>'
+  +'<div style="background:var(--sur);border-radius:6px;padding:4px 10px;font-size:11px"><span style="color:var(--wrn);font-weight:600">'+Math.round(tot.saturatedFat)+'</span><span style="color:var(--dim)"> g g.sat</span></div>'
+  +'<div style="background:var(--sur);border-radius:6px;padding:4px 10px;font-size:11px"><span style="font-weight:600">'+Math.round(tot.fiber)+'</span><span style="color:var(--dim)"> g fibra</span></div>'
+  +'</div></div>';
+  if(!dm.length)h+='<div class="empty"><div class="ei">🥗</div><div>Sin comidas registradas</div><div style="font-size:11px;margin-top:4px">La IA calculará los nutrientes automáticamente</div></div>';
+  dm.forEach(function(m){
+    var n=m.nutrition||{};
+    h+='<div class="card"><div style="display:flex;justify-content:space-between"><div style="flex:1"><div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span style="font-size:18px">'+(em[m.mealType]||'🍽️')+'</span><span style="font-size:13px;font-weight:600;text-transform:capitalize">'+m.mealType+'</span><span style="font-size:11px;color:var(--mut)">🕐 '+m.time+'</span></div><div style="font-size:12px;color:var(--mut);margin-bottom:8px">'+esc(m.description)+'</div><div style="display:flex;gap:5px;flex-wrap:wrap">'
+    +[['calories','kcal','var(--acc)'],['protein','g prot','var(--pri)'],['sodium','Na mg','var(--wrn)'],['potassium','K mg','var(--pur)'],['phosphorus','P mg','var(--pnk)'],['cholesterol','Chol mg','var(--acc)'],['carbs','g carb','var(--mut)'],['fat','g grasa','var(--mut)']].map(function(kuc){return'<div style="background:var(--sur);border-radius:5px;padding:3px 7px;font-size:10px"><span style="color:'+kuc[2]+';font-weight:700">'+Math.round(parseFloat(n[kuc[0]])||0)+'</span><span style="color:var(--dim)"> '+kuc[1]+'</span></div>'}).join('')
+    +'</div></div><button onclick="delMeal(\''+m.id+'\')" style="background:none;border:none;color:var(--dng);cursor:pointer;font-size:16px;padding:4px;align-self:flex-start">🗑</button></div></div>';
+  });
+  c.innerHTML=h;
+}
+function delMeal(id){MEALS=MEALS.filter(function(m){return m.id!==id});saveAll();render()}
+function openMeal(){
+  var hasSpeech=!!(window.SpeechRecognition||window.webkitSpeechRecognition);
+  om(modal('meal','Registrar Comida',
+    '<div class="g2">'+fg('Tipo',sel('mlt',[['desayuno','🌅 Desayuno'],['almuerzo','☀️ Almuerzo'],['merienda','🫐 Merienda'],['cena','🌙 Cena'],['otro','🍽️ Otro']],'desayuno'))+fg('Hora',inp('mlt2','time','',nowt()))+'</div>'
+    +'<div class="fg"><label class="lb">¿Qué comiste?</label>'
+    +'<div style="display:flex;gap:6px;align-items:flex-start">'
+    +'<textarea id="mld" rows="3" placeholder="Ej: Arroz blanco, pechuga a la plancha..." style="flex:1;resize:none"></textarea>'
+    +(hasSpeech?'<button id="mlmic" onclick="startVoiceMeal()" style="background:var(--sur);border:1px solid var(--bdr);border-radius:8px;padding:8px;cursor:pointer;font-size:18px;color:var(--mut);min-width:42px">🎤</button>':'')
+    +'</div>'
+    +(hasSpeech?'<div id="mlmicst" style="font-size:11px;color:var(--mut);margin-top:3px"></div>':'<div style="font-size:11px;color:var(--dim)">Voz no disponible en este navegador</div>')
+    +'</div>'
+    +'<div class="fg"><label class="lb">Foto de la comida (opcional)</label>'
+    +'<input type="file" id="mlimg" accept="image/*" capture="environment" style="display:none" onchange="previewMealImg(this)"/>'
+    +'<div style="display:flex;gap:8px;align-items:center">'
+    +'<button onclick="g(\'mlimg\').click()" class="btn bg" style="flex:1;font-size:12px">📷 Seleccionar foto</button>'
+    +'<button id="mlanalyzebtn" onclick="analyzeMealPhoto()" class="btn bp" style="flex:1;font-size:12px;display:none">🔍 Analizar foto</button>'
+    +'</div>'
+    +'<div id="mlpreview" style="margin-top:8px"></div>'
+    +'</div>'
+    +'<div class="al ai">🤖 La IA calculará los nutrientes ajustados a tu condición clínica</div>'
+    +'<button class="btn bp bf" id="mlbtn" onclick="saveMeal()">🤖 Analizar y Guardar</button>'
+  ));
+}
+function previewMealImg(input){
+  var file=input.files[0];if(!file)return;
+  var reader=new FileReader();
+  reader.onload=function(e){
+    var prev=g('mlpreview');var btn=g('mlanalyzebtn');
+    if(prev)prev.innerHTML='<img src="'+e.target.result+'" style="max-width:100%;max-height:180px;border-radius:8px;border:1px solid var(--bdr)"/>';
+    if(btn)btn.style.display='';
+  };
+  reader.readAsDataURL(file);
+}
+async function analyzeMealPhoto(){
+  var btn=g('mlanalyzebtn');if(btn){btn.textContent='⏳ Analizando...';btn.disabled=true;}
+  var file=g('mlimg').files[0];if(!file){if(btn){btn.textContent='🔍 Analizar foto';btn.disabled=false;}return;}
+  var reader=new FileReader();
+  reader.onload=async function(e){
+    try{
+      var b64=e.target.result.split(',')[1];
+      var mime=file.type||'image/jpeg';
+      var prompt='Analiza esta comida y devuelve SOLO JSON válido sin texto extra:\n{"description":"","calories":0,"protein":0,"carbs":0,"fat":0,"fiber":0,"sodium":0,"potassium":0,"phosphorus":0,"cholesterol":0,"saturatedFat":0}\nConsidera: paciente con insuficiencia renal moderada, límites: sodio 1200mg, potasio 2500mg, fósforo 800mg/día.';
+      var r=await fetch(BACKEND+'/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({system:'',message:prompt,images:[{mime:mime,b64:b64}]})});
+      var d=await r.json();
+      var parsed=repairJSON(d.text||'');
+      if(parsed){
+        var td=g('mld');if(td&&parsed.description)td.value=parsed.description;
+        ['calories','protein','carbs','fat','fiber','sodium','potassium','phosphorus','cholesterol','saturatedFat'].forEach(function(k){var el=g('ml_'+k);if(el)el.value=parsed[k]||0});
+        if(btn){btn.textContent='✅ Analizado';btn.style.background='var(--ok)';btn.style.color='#0a1628';}
+      }
+    }catch(err){alert('Error analizando foto: '+err.message);if(btn){btn.textContent='🔍 Analizar foto';btn.disabled=false;}}
+  };
+  reader.readAsDataURL(file);
+}
+var _mlRecognition=null;
+function startVoiceMeal(){
+  var SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR)return;
+  var mic=g('mlmic'),st=g('mlmicst');
+  if(_mlRecognition){_mlRecognition.stop();_mlRecognition=null;if(mic)mic.style.color='var(--mut)';if(st)st.textContent='';return;}
+  _mlRecognition=new SR();
+  _mlRecognition.lang='es-EC';_mlRecognition.continuous=false;_mlRecognition.interimResults=true;
+  _mlRecognition.onstart=function(){if(mic)mic.style.color='var(--dng)';if(st)st.textContent='🔴 Grabando... (toca de nuevo para detener)';};
+  _mlRecognition.onresult=function(e){var txt=Array.from(e.results).map(function(r){return r[0].transcript}).join('');var td=g('mld');if(td)td.value=txt;};
+  _mlRecognition.onend=function(){_mlRecognition=null;if(mic)mic.style.color='var(--mut)';if(st)st.textContent='✅ Transcripción completa — revisa y ajusta el texto';};
+  _mlRecognition.onerror=function(e){_mlRecognition=null;if(mic)mic.style.color='var(--mut)';if(st)st.textContent='Error: '+e.error;};
+  _mlRecognition.start();
+}
+async function saveMeal(){
+  const desc=gv('mld').trim();if(!desc)return;
+  const btn=g('mlbtn');btn.textContent='⏳ Analizando...';btn.disabled=true;
+  var nutrition={calories:0,protein:0,carbs:0,fat:0,fiber:0,sodium:0,potassium:0,phosphorus:0,cholesterol:0,saturatedFat:0};
+  try{
+    const conds=P.conditions||'generales';
+    const wt=P.weight||70;
+    const sys='Eres nutricionista clinico. Condiciones: '+conds+'. Peso: '+wt+'kg. Devuelve SOLO JSON sin texto extra: {"calories":0,"protein":0,"carbs":0,"fat":0,"fiber":0,"sodium":0,"potassium":0,"phosphorus":0,"cholesterol":0,"saturatedFat":0}';
+    const raw=await callAPI(sys,'Analiza nutricionalmente: '+desc,null,false,null);
+    const parsed=repairJSON(raw);
+    if(parsed){['calories','protein','carbs','fat','fiber','sodium','potassium','phosphorus','cholesterol','saturatedFat'].forEach(function(k){nutrition[k]=parseFloat(parsed[k])||0})}
+  }catch(e){alert('Error IA: '+e.message+'. El alimento se guarda sin valores.');console.error(e)}
+  MEALS.push({id:uid(),date:_dd,time:gv('mlt2'),mealType:gv('mlt'),description:desc,nutrition:nutrition});
+  saveAll();cm('meal');render();
+}
+
+// EJERCICIO
+const METS={'caminata':3.5,'trote suave':6.0,'bicicleta estática':5.0,'ejercicios en casa':4.0,'natación':6.0,'yoga/stretching':2.5,'otro':3.0};
+var _ed=today();
+var _tcView=false;
+function rEj(c){
+  if(_tcView){rTaiChi(c);return}
+  const de=EX.filter(function(e){return e.date===_ed});
+  const totC=de.reduce(function(s,e){return s+(e.caloriesBurned||0)},0);
+  const totS=de.reduce(function(s,e){return s+(parseInt(e.steps)||0)},0);
+  const totM=de.reduce(function(s,e){return s+(parseInt(e.minutes)||0)},0);
+  let h='<div style="display:flex;gap:8px;align-items:center;margin-bottom:12px"><input type="date" value="'+_ed+'" onchange="_ed=this.value;render()" style="flex:1"/><button class="btn bp bs" onclick="openEx()">+ Registrar</button></div>'
+  +'<div class="card" style="background:linear-gradient(135deg,#0a2010,#0a3018)"><div class="g3"><div class="sb" style="background:transparent"><div class="sv" style="color:var(--pri)">'+totS.toLocaleString()+'</div><div class="sl">👟 Pasos</div></div><div class="sb" style="background:transparent"><div class="sv" style="color:var(--acc)">'+totM+'</div><div class="sl">⏱ Min</div></div><div class="sb" style="background:transparent"><div class="sv" style="color:var(--wrn)">'+totC+'</div><div class="sl">🔥 Cal</div></div></div></div>';
+  h+='<button class="btn bf" onclick="tcInit()" style="margin-bottom:12px;background:linear-gradient(135deg,#051a30,#0a2840);color:var(--pri);border:1px solid rgba(0,212,170,.3);font-size:13px">🧘 Plan Tai Chi en Silla — 16 ejercicios adaptados</button>';
+  if(!de.length)h+='<div class="empty"><div class="ei">🚶</div><div>Sin ejercicio registrado</div></div>';
+  de.forEach(function(e){h+='<div class="card"><div style="display:flex;justify-content:space-between;align-items:flex-start"><div><div style="font-size:13px;font-weight:600">🚶 '+esc(e.type)+' · '+e.time+'</div><div style="font-size:12px;color:var(--mut);margin-top:4px">'+(e.steps?parseInt(e.steps).toLocaleString()+' pasos · '+e.distance+' km · ':'')+e.minutes+' min · 🔥 '+e.caloriesBurned+' kcal</div>'+(e.notes?'<div style="font-size:11px;color:var(--dim);margin-top:4px">'+esc(e.notes)+'</div>':'')+'</div><button onclick="delEx(\''+e.id+'\')" style="background:none;border:none;color:var(--dng);cursor:pointer;font-size:16px">🗑</button></div></div>'});
+  c.innerHTML=h;
+}
+function delEx(id){EX=EX.filter(function(e){return e.id!==id});saveAll();render()}
+function openEx(){
+  om(modal('ex','Registrar Ejercicio','<div class="g2">'+fg('Tipo',sel('ext',Object.keys(METS).map(function(k){return[k,k]}),'caminata'))+fg('Hora',inp('ext2','time','',nowt()))+'</div><div class="g2">'+fg('Pasos (opcional)',inp('exs','number','',''))+fg('Minutos',inp('exm','number','30',''))+'</div><div id="excp" class="al ai" style="display:none"></div>'+fg('Notas',inp('exn','text','Ej: Parque del barrio',''))+'<button class="btn bp bf" onclick="saveEx()">💾 Guardar</button>'));
+  setTimeout(function(){['ext','exm'].forEach(function(id){const e=g(id);if(e)e.addEventListener('input',updExPrev)})},100);
+}
+function updExPrev(){const t=gv('ext'),m=parseFloat(gv('exm'))||0,cal=Math.round((METS[t]||3)*(parseFloat(P.weight)||70)*(m/60)),e=g('excp');if(!e)return;if(m>0){e.style.display='block';e.innerHTML='🔥 Estimado: <strong>'+cal+' kcal</strong>'}else e.style.display='none'}
+function saveEx(){
+  const t=gv('ext'),s=gv('exs'),m=gv('exm');if(!m&&!s)return;
+  EX.push({id:uid(),date:_ed,time:gv('ext2'),type:t,steps:s,minutes:m,caloriesBurned:Math.round((METS[t]||3)*(parseFloat(P.weight)||70)*(parseFloat(m)||0)/60),distance:s?(parseFloat(s)*0.0008).toFixed(2):0,notes:gv('exn')});
+  saveAll();cm('ex');render();
+}
+
+// TAI CHI EN SILLA
+var _tcStep='intro';
+var _tcActiveEx=1;
+var _tcCompleted=[];
+var _tcSessionLogged=false;
+const TC=[
+  {n:1,name:'Postura Sentada',en:'Seated Posture',desc:'Siéntate en el borde delantero de la silla, no uses el respaldo. Coloca ambos pies planos en el suelo al ancho de las caderas. Endereza la columna como si un hilo invisible jalara la coronilla hacia el techo. Relaja los hombros hacia atrás y abajo. Manos sobre los muslos, palmas abajo. Cierra los ojos y realiza 3 respiraciones profundas: inhala por la nariz 4 segundos, exhala por la boca 6 segundos. Esta es la posición base para todos los ejercicios.',series:'1 serie',reps:'30-60 segundos',rest:'Continuar al siguiente',benefit:'Activa la postura correcta, prepara el cuerpo y mejora la respiración diafragmática — ayuda con la apnea del sueño.',caution:'Si tienes dolor lumbar, apoya suavemente la espalda.'},
+  {n:2,name:'Levantamiento de Piernas',en:'Leg Lifts',desc:'Desde la postura base, mantén la espalda recta. Inhala. Al exhalar, levanta lentamente la rodilla derecha 20-30 cm del suelo. Mantén 2 segundos. Baja lentamente al inhalar. Repite con la pierna izquierda — eso es 1 repetición. Extiende los brazos ligeramente hacia adelante para equilibrio. No te inclines hacia los lados.',series:'3 series',reps:'10 por cada pierna',rest:'30 seg entre series',benefit:'Fortalece cuádriceps e isquiotibiales, mejora la circulación en piernas — importante con WARFICAN para prevenir trombosis.',caution:'No levantes la rodilla más de 45° si sientes tensión en la cadera.'},
+  {n:3,name:'Círculos de Brazos',en:'Arm Circles',desc:'Extiende ambos brazos a los lados a la altura de los hombros formando una "T". Mantén los codos ligeramente doblados. Rota en círculos pequeños hacia adelante, aumentando gradualmente el tamaño hasta círculos grandes. Respira normalmente. Después invierte la dirección. Si sientes cansancio, reduce el tamaño del círculo.',series:'3 series',reps:'10 adelante + 10 atrás',rest:'30 seg entre series',benefit:'Mejora la movilidad de hombros, activa la circulación en brazos, lubrica las articulaciones del hombro, reduce tensión por postura sedentaria.',caution:'Si tienes dolor de hombro, reduce el rango del movimiento.'},
+  {n:4,name:'Talones y Puntas',en:'Heel & Toe Taps',desc:'Pies planos en el suelo. Pie derecho: levanta las puntas manteniendo el talón. Al mismo tiempo, pie izquierdo: levanta el talón manteniendo las puntas. Alterna el patrón a ritmo moderado, como si marcharas sentado. Manos sobre los muslos para estabilidad.',series:'3 series',reps:'20 alternados por serie',rest:'20 seg entre series',benefit:'Activa la bomba muscular de las pantorrillas — crucial para evitar coágulos con anticoagulante, mejora la circulación periférica, previene edema en pies.',caution:'Movimiento lento y controlado. No hay impacto.'},
+  {n:5,name:'Giros Laterales',en:'Side Twists',desc:'Coloca los brazos cruzados sobre el pecho o extendidos al nivel del pecho. Inhala en posición central. Al exhalar, gira lentamente el torso a la derecha llevando el hombro derecho hacia atrás. Mantén las caderas al frente. Inhala al volver al centro. Exhala y gira hacia la izquierda. Muévete despacio.',series:'3 series',reps:'10 giros a cada lado',rest:'30 seg entre series',benefit:'Moviliza la columna dorsal, masajea los órganos digestivos, activa los oblicuos abdominales, alivia la tensión de espalda por sedentarismo.',caution:'Con válvula mecánica: SIEMPRE movimiento suave y controlado, nunca brusco.'},
+  {n:6,name:'Extensión de Rodillas',en:'Knee Extensions',desc:'Siéntate erguido con manos apoyando los lados del asiento. Inhala. Al exhalar, extiende la pierna derecha hacia adelante hasta quedar horizontal. Apunta los dedos hacia arriba (flexiona el tobillo). Mantén 3 segundos sintiendo el trabajo en el cuádriceps. Baja lentamente sin golpear el suelo. Repite con la pierna izquierda.',series:'3 series',reps:'10 por cada pierna',rest:'30 seg entre series',benefit:'Fortalece intensamente los cuádriceps, mejora la estabilidad de rodillas, mantiene la funcionalidad para subir escaleras y levantarse de sillas.',caution:'Si tienes dolor de rodilla, no extiendas completamente — para donde sea cómodo.'},
+  {n:7,name:'Ondas de Manos',en:'Hand Waves',desc:'Levanta ambos brazos frente a ti con los codos doblados a 90°, manos al nivel del pecho y palmas hacia arriba. Mueve las manos lentamente de izquierda a derecha y de regreso, como si acariciaras agua tranquila. El movimiento es suave y fluido sin tensión. Respira lento. Puedes cerrar los ojos.',series:'2 series',reps:'20 ondas completas',rest:'20 seg entre series',benefit:'Mejora coordinación ojo-mano, desarrolla la concentración, activa el sistema nervioso parasimpático (relaja), reduce la presión arterial por el efecto calmante.',caution:'Ninguna especial — es el ejercicio más suave de la serie.'},
+  {n:8,name:'Marcha en el Lugar',en:'Marching in Place',desc:'Levanta las rodillas de forma alternada como si marcharas, permaneciendo sentado. Levanta la rodilla derecha mientras bajas el brazo izquierdo, y viceversa — movimiento natural de marcha. Mantén un ritmo moderado y constante. Inhala y exhala normalmente sin retener el aire.',series:'3 series',reps:'30 pasos alternados (15 c/pierna)',rest:'45 seg entre series',benefit:'Cardio suave sin impacto en articulaciones, eleva la frecuencia cardíaca de forma segura, mejora la coordinación bilateral, activa la circulación para controlar la glucosa.',caution:'Si el pulso supera 110 lpm, detente y descansa.'},
+  {n:9,name:'Patadas de Pierna',en:'Leg Kicks',desc:'Inclínate ligeramente hacia adelante desde la cadera. Sostén los lados del asiento. Inhala. Al exhalar, extiende la pierna derecha en una patada suave y controlada unos 45° del suelo. Inhala al bajar con control — no permitas que el pie golpee el suelo. Alterna piernas.',series:'3 series',reps:'10 por cada pierna',rest:'30 seg entre series',benefit:'Fortalece flexores de cadera y cuádriceps, mejora el rango de movimiento de la cadera, activa la circulación en extremidades inferiores.',caution:'Movimiento siempre controlado, nunca brusco — importante con válvula mecánica cardíaca.'},
+  {n:10,name:'Empuje de Brazos',en:'Arm Pushes',desc:'Dobla los codos y lleva las manos al nivel del pecho con las palmas hacia adelante, como si fueras a empujar una pared invisible. Inhala. Al exhalar lentamente, extiende ambos brazos hacia adelante empujando esa resistencia imaginaria. Siente el trabajo en pecho y tríceps. Mantén 2 segundos extendido. Inhala al volver.',series:'3 series',reps:'15 empujes por serie',rest:'30 seg entre series',benefit:'Fortalece pectorales, deltoides anteriores y tríceps, mejora la postura, mantiene la fuerza funcional de brazos para actividades diarias.',caution:'No contengas la respiración — exhala siempre al empujar.'},
+  {n:11,name:'Giros de Cuerpo',en:'Body Turns',desc:'Extiende el brazo derecho hacia el lado a la altura del hombro, palma al frente. Gira el torso hacia la derecha siguiendo el brazo extendido, como si alcanzaras algo detrás de ti. La mirada sigue la mano. Las caderas permanecen fijas al frente. Vuelve al centro, inhala. Exhala y repite al lado izquierdo. 3 segundos de ida y 3 de vuelta.',series:'3 series',reps:'10 giros a cada lado',rest:'30 seg entre series',benefit:'Mayor rango de rotación que los giros laterales, mejora la flexibilidad de columna dorsal y cervical, activa músculos paravertebrales, estira pecho y hombros.',caution:'Gira solo hasta donde sea cómodo — no fuerces el movimiento.'},
+  {n:12,name:'Elevación de Talones',en:'Toe Raises',desc:'Pies bien apoyados en el suelo. Sostén el asiento para equilibrio. Inhala. Al exhalar, levanta ambos talones simultáneamente apoyándote solo en las puntas de los pies. Siente la contracción en las pantorrillas. Mantén 2-3 segundos arriba. Inhala y baja los talones lentamente. Evita el movimiento de rebote — cada subida y bajada es controlada.',series:'3 series',reps:'15 elevaciones por serie',rest:'30 seg entre series',benefit:'Fortalece las pantorrillas (sóleo y gastrocnemio), activa la bomba venosa para retorno sanguíneo al corazón, mejora el equilibrio, previene edema en pies y tobillos.',caution:'Movimiento lento para mantener el control sentado.'},
+  {n:13,name:'Rodilla al Pecho',en:'Knee to Chest',desc:'Entrelaza las manos frente a la rodilla derecha. Inhala. Al exhalar, jala suavemente la rodilla hacia el pecho usando las manos para guiar. Sube hasta donde sea cómodo — no necesitas tocar el pecho. Mantén 3-5 segundos respirando normalmente. Siente el estiramiento en la cadera y zona lumbar baja. Inhala al bajar lentamente.',series:'2 series',reps:'10 por cada pierna',rest:'30 seg entre series',benefit:'Estira profundamente los flexores de cadera, alivia la tensión lumbar, mejora la flexibilidad de cadera, masajea suavemente el colon mejorando el tránsito intestinal.',caution:'Con prótesis de cadera: consulta al médico — no excedas el ángulo permitido.'},
+  {n:14,name:'Flexiones de Cintura',en:'Waist Bends',desc:'Manos sobre los muslos o brazos cruzados en el pecho. Mantén la espalda recta — la inclinación es desde las caderas, no desde la cintura. Inhala erguido. Al exhalar, inclínate hacia adelante 20-30 grados con la columna neutra, no arqueada. Siente el leve trabajo abdominal. Inhala y vuelve erguido. La cabeza lidera el movimiento.',series:'3 series',reps:'10 inclinaciones por serie',rest:'30 seg entre series',benefit:'Fortalece el core anterior y posterior, mejora la flexibilidad de columna, activa la musculatura abdominal profunda, mejora el equilibrio sentado.',caution:'NO hacer con hernia discal activa. Con hipertensión severa: inclinación máxima 20°.'},
+  {n:15,name:'Manos de Nube',en:'Cloud Hands',desc:'Mano derecha al nivel del pecho, palma hacia ti. Mano izquierda al nivel del abdomen, palma abajo. Mueve las manos en un círculo lento y fluido: la derecha sube, se abre al lado y baja, mientras la izquierda sube desde abajo para tomar su lugar. Como si moldearas una esfera de energía invisible. Cierra los ojos y enfócate en la fluidez. Respira profundo y lento.',series:'2 series',reps:'10 círculos completos',rest:'20 seg entre series',benefit:'Máximo efecto relajante, activa el sistema nervioso parasimpático, reduce el cortisol que afecta la presión arterial y la glucosa, mejora la coordinación bilateral — efecto similar a la meditación.',caution:'Si te mareas al cerrar los ojos, mantenlos abiertos.'},
+  {n:16,name:'Círculos de Tobillos',en:'Ankle Circles',desc:'Levanta ligeramente el pie derecho del suelo, solo unos centímetros. Sostén el asiento para equilibrio. Rota el tobillo lentamente en círculos en el sentido del reloj: 10 círculos. Pausa 3 segundos. Rota en sentido contrario: 10 círculos. Baja el pie y repite con el tobillo izquierdo. Finaliza con 3 respiraciones profundas cerrando los ojos.',series:'2 series',reps:'10 círculos c/dirección, c/tobillo',rest:'20 seg entre cambios',benefit:'Mejora la movilidad articular de tobillos, previene esguinces, activa el retorno venoso en extremidades — esencial para prevenir trombosis con WARFICAN, reduce el edema en pies.',caution:'Si tienes edema severo en tobillos, eleva más el pie al realizarlo.'}
+];
+function tcInit(){_tcView=true;_tcStep='intro';_tcCompleted=[];_tcSessionLogged=false;render()}
+function tcNextEx(n){
+  if(_tcCompleted.indexOf(n)<0)_tcCompleted.push(n);
+  if(n<16){_tcActiveEx=n+1;_tcStep='detail';}else{_tcStep='grid';}
+  render();
+}
+function tcComplete(n){
+  if(_tcCompleted.indexOf(n)<0)_tcCompleted.push(n);
+  if(_tcCompleted.length===16&&!_tcSessionLogged){tcFinish();return;}
+  render();
+}
+function tcFinish(){
+  if(!_tcSessionLogged){
+    _tcSessionLogged=true;
+    var kcal=Math.round((parseFloat(P.weight)||70)*1.15);
+    EX.push({id:uid(),date:today(),time:nowt(),type:'Tai Chi en Silla',steps:0,minutes:30,caloriesBurned:kcal,distance:0,notes:'Sesión completa — 16 ejercicios de Tai Chi en Silla'});
+    S.set('mm4_ex',EX);
+    syncToBackend();
+  }
+  _ed=today();
+  _tcStep='done';render();
+}
+function rTaiChi(c){
+  if(_tcStep==='intro')rTCIntro(c);
+  else if(_tcStep==='detail')rTCDetail(c);
+  else if(_tcStep==='done')rTCDone(c);
+  else rTCGrid(c);
+}
+function rTCIntro(c){
+  var kcal=Math.round((parseFloat(P.weight)||70)*1.15);
+  var h='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">'
+    +'<button class="btn bg bs" onclick="_tcView=false;render()">← Volver</button>'
+    +'<div style="font-size:15px;font-weight:700">🧘 Tai Chi en Silla</div>'
+    +'<div style="width:60px"></div>'
+    +'</div>'
+    +'<div style="background:#7f1d1d30;border:1.5px solid var(--dng);border-radius:12px;padding:14px;margin-bottom:14px">'
+    +'<div style="font-size:13px;font-weight:700;color:var(--dng);margin-bottom:8px">🚨 DETENER INMEDIATAMENTE SI:</div>'
+    +'<div style="font-size:12px;color:#fca5a5;line-height:1.9">'
+    +'• Dolor en el pecho o palpitaciones irregulares<br>'
+    +'• Mareo o sensación de desmayo<br>'
+    +'• Dificultad para respirar<br>'
+    +'• Dolor agudo en cualquier articulación<br>'
+    +'• <strong>Presión arterial &gt; 160/100 antes de comenzar</strong>'
+    +'</div></div>'
+    +'<div class="card" style="margin-bottom:14px">'
+    +'<div style="font-size:13px;font-weight:700;color:var(--pri);margin-bottom:10px">📋 Instrucciones generales</div>'
+    +'<div style="font-size:12px;line-height:1.9;color:var(--txt)">'
+    +'🌬️ Respira profundo y lento durante todo el ejercicio<br>'
+    +'🚫 <strong>NUNCA contengas la respiración</strong><br>'
+    +'🐢 Muévete despacio y con control<br>'
+    +'⛔ Si sientes mareo o dolor, detente inmediatamente<br>'
+    +'💧 Toma agua antes y después de la sesión<br>'
+    +'📅 Ideal: 3-5 veces por semana · 10:00-11:00 AM'
+    +'</div></div>'
+    +'<div class="card" style="background:linear-gradient(135deg,#0a2040,#0a3050);margin-bottom:16px">'
+    +'<div class="g3">'
+    +'<div class="sb" style="background:transparent"><div class="sv" style="color:var(--pri)">16</div><div class="sl">ejercicios</div></div>'
+    +'<div class="sb" style="background:transparent"><div class="sv" style="color:var(--acc)">30</div><div class="sl">minutos</div></div>'
+    +'<div class="sb" style="background:transparent"><div class="sv" style="color:var(--wrn)">~'+kcal+'</div><div class="sl">kcal</div></div>'
+    +'</div></div>'
+    +'<button class="btn bp bf" style="font-size:14px;padding:14px" onclick="_tcStep=\'grid\';render()">💪 Entendido — Iniciar Sesión</button>';
+  c.innerHTML=h;
+}
+function rTCGrid(c){
+  var done=_tcCompleted.length;
+  var pct=Math.round(done/16*100);
+  var h='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">'
+    +'<button class="btn bg bs" onclick="_tcView=false;render()">← Salir</button>'
+    +'<div style="font-size:14px;font-weight:700">🧘 Tai Chi en Silla</div>'
+    +'<div style="font-size:12px;color:var(--pri);font-weight:700">'+done+'/16 ✓</div>'
+    +'</div>'
+    +'<div style="background:var(--bdr);border-radius:4px;height:6px;margin-bottom:12px">'
+    +'<div style="width:'+pct+'%;height:100%;background:var(--pri);border-radius:4px;transition:width .3s"></div>'
+    +'</div>'
+    +'<div class="tc-grid">';
+  TC.forEach(function(ex){
+    var isDone=_tcCompleted.indexOf(ex.n)>=0;
+    h+='<div onclick="_tcActiveEx='+ex.n+';_tcStep=\'detail\';render()" style="background:var(--card);border:1.5px solid '+(isDone?'var(--ok)':'var(--bdr)')+';border-radius:12px;overflow:hidden;cursor:pointer;position:relative">'
+      +(isDone
+        ?'<div style="position:absolute;top:6px;right:6px;z-index:2;background:var(--ok);color:#fff;border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700">✓</div>'
+        :'<div style="position:absolute;top:6px;left:8px;z-index:2;background:#0a162890;color:var(--mut);border-radius:10px;padding:1px 7px;font-size:10px;font-weight:600">'+ex.n+'</div>')
+      +'<img src="/taichi/ejercicio_'+ex.n+'.png" style="width:100%;aspect-ratio:1;object-fit:cover;display:block" onerror="this.style.cssText=\'width:100%;min-height:90px;background:#0a2040;display:block\'">'
+      +'<div style="padding:8px 8px 10px">'
+      +'<div style="font-size:11px;font-weight:700;line-height:1.3;margin-bottom:3px;color:'+(isDone?'var(--ok)':'var(--txt)')+'">'+ex.name+'</div>'
+      +'<div style="font-size:9px;color:var(--mut)">'+ex.reps+'</div>'
+      +'</div></div>';
+  });
+  h+='</div>';
+  if(done===16){
+    h+='<button class="btn bp bf" style="margin-top:14px;font-size:14px;padding:13px" onclick="tcFinish()">🎉 Registrar Sesión Completa</button>';
+  }else{
+    h+='<div style="text-align:center;padding:12px 0;font-size:11px;color:var(--mut)">Toca un ejercicio para ver las instrucciones completas</div>';
+  }
+  c.innerHTML=h;
+}
+function rTCDetail(c){
+  var ex=TC.find(function(e){return e.n===_tcActiveEx});
+  if(!ex){_tcStep='grid';render();return}
+  var isDone=_tcCompleted.indexOf(ex.n)>=0;
+  var h='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">'
+    +'<button class="btn bg bs" onclick="_tcStep=\'grid\';render()">← Volver</button>'
+    +'<div style="font-size:11px;color:var(--mut)">Ejercicio '+ex.n+' de 16</div>'
+    +'<div style="display:flex;gap:6px">'
+    +(ex.n>1?'<button class="btn bg bs" onclick="_tcActiveEx='+(ex.n-1)+';render()" style="padding:5px 10px">‹</button>':'<div style="width:36px"></div>')
+    +(ex.n<16?'<button class="btn bg bs" onclick="_tcActiveEx='+(ex.n+1)+';render()" style="padding:5px 10px">›</button>':'<div style="width:36px"></div>')
+    +'</div></div>'
+    +'<img src="/taichi/ejercicio_'+ex.n+'.png" style="width:100%;max-height:260px;object-fit:cover;border-radius:12px;display:block;margin-bottom:14px" onerror="this.style.display=\'none\'">'
+    +'<div style="margin-bottom:12px">'
+    +'<div style="font-size:20px;font-weight:700;line-height:1.2">'+esc(ex.name)+'</div>'
+    +'<div style="font-size:12px;color:var(--mut);margin-top:3px;font-style:italic">'+esc(ex.en)+'</div>'
+    +'</div>'
+    +'<div class="card" style="margin-bottom:10px">'
+    +'<div style="font-size:10px;font-weight:700;color:var(--mut);margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px">¿Cómo hacerlo?</div>'
+    +'<div style="font-size:12px;line-height:1.75;color:var(--txt)">'+esc(ex.desc)+'</div>'
+    +'</div>'
+    +'<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:10px">'
+    +'<div class="sb"><div class="sv" style="font-size:13px;color:var(--pri);line-height:1.3">'+esc(ex.series)+'</div><div class="sl">Series</div></div>'
+    +'<div class="sb"><div class="sv" style="font-size:12px;color:var(--acc);line-height:1.3">'+esc(ex.reps)+'</div><div class="sl">Repeticiones</div></div>'
+    +'<div class="sb"><div class="sv" style="font-size:12px;color:var(--wrn);line-height:1.3">'+esc(ex.rest)+'</div><div class="sl">Descanso</div></div>'
+    +'</div>'
+    +'<div style="background:#052e1630;border:1px solid rgba(16,185,129,.25);border-radius:10px;padding:12px;margin-bottom:10px">'
+    +'<div style="font-size:10px;font-weight:700;color:var(--ok);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px">✅ Beneficio</div>'
+    +'<div style="font-size:12px;color:var(--txt);line-height:1.65">'+esc(ex.benefit)+'</div>'
+    +'</div>'
+    +(ex.caution
+      ?'<div style="background:#78350f25;border:1px solid rgba(245,158,11,.3);border-radius:10px;padding:12px;margin-bottom:10px">'
+        +'<div style="font-size:10px;font-weight:700;color:var(--wrn);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px">⚠️ Precaución</div>'
+        +'<div style="font-size:12px;color:#fcd34d;line-height:1.65">'+esc(ex.caution)+'</div>'
+        +'</div>'
+      :'')
+    +'<button class="btn bf" style="font-size:14px;padding:13px;margin-top:4px;'
+    +(isDone?'background:#052e16;color:var(--ok);border:1.5px solid var(--ok);':'background:var(--pri);color:#0a1628;')
+    +'" onclick="tcComplete('+ex.n+')">'
+    +(isDone?'✅ Completado':'✓ Marcar como completado')
+    +'</button>'
+    +(ex.n<16&&!isDone
+      ?'<button class="btn bf bg" style="margin-top:8px;font-size:12px;padding:10px" onclick="tcNextEx('+ex.n+')">✓ Completado → Siguiente ejercicio</button>'
+      :'')
+    +(ex.n===16&&!isDone
+      ?'<button class="btn bf" style="margin-top:8px;font-size:12px;padding:10px;background:var(--acc);color:#fff" onclick="tcNextEx('+ex.n+')">✓ Completado — Finalizar sesión</button>'
+      :'');
+  c.innerHTML=h;
+}
+function rTCDone(c){
+  var kcal=Math.round((parseFloat(P.weight)||70)*1.15);
+  var wt=parseFloat(P.weight)||70;
+  var h='<div style="text-align:center;padding:24px 0 16px">'
+    +'<div style="font-size:56px;margin-bottom:8px">🏆</div>'
+    +'<div style="font-size:22px;font-weight:700;margin-bottom:6px">¡Sesión completada!</div>'
+    +'<div style="font-size:13px;color:var(--mut)">Tai Chi en Silla · '+new Date().toLocaleDateString(\'es-EC\',{weekday:\'long\',day:\'2-digit\',month:\'long\'})+'</div>'
+    +'</div>'
+    +'<div class="card" style="background:linear-gradient(135deg,#0a2040,#0a3050);margin-bottom:12px">'
+    +'<div class="g3">'
+    +'<div class="sb" style="background:transparent"><div class="sv" style="color:var(--pri);font-size:28px">16</div><div class="sl">ejercicios ✅</div></div>'
+    +'<div class="sb" style="background:transparent"><div class="sv" style="color:var(--acc);font-size:28px">30</div><div class="sl">minutos</div></div>'
+    +'<div class="sb" style="background:transparent"><div class="sv" style="color:var(--wrn);font-size:28px">'+kcal+'</div><div class="sl">kcal</div></div>'
+    +'</div></div>'
+    +'<div class="card" style="margin-bottom:12px">'
+    +'<div style="font-size:12px;font-weight:700;color:var(--pri);margin-bottom:10px">📋 Registrado en Ejercicio</div>'
+    +'<div style="font-size:12px;line-height:2;color:var(--txt)">'
+    +'<div style="display:flex;justify-content:space-between"><span style="color:var(--mut)">Tipo</span><span style="font-weight:600">Tai Chi en Silla</span></div>'
+    +'<div style="display:flex;justify-content:space-between"><span style="color:var(--mut)">Fecha</span><span>'+today()+'</span></div>'
+    +'<div style="display:flex;justify-content:space-between"><span style="color:var(--mut)">Duración</span><span style="font-weight:600">30 min</span></div>'
+    +'<div style="display:flex;justify-content:space-between"><span style="color:var(--mut)">Calorías</span><span style="font-weight:600;color:var(--wrn)">'+kcal+' kcal</span></div>'
+    +'<div style="display:flex;justify-content:space-between"><span style="color:var(--mut)">Fórmula</span><span style="font-size:11px;color:var(--dim)">'+wt+' kg × 1.15</span></div>'
+    +'</div></div>'
+    +'<div style="background:#78350f25;border:1px solid rgba(245,158,11,.25);border-radius:10px;padding:12px;margin-bottom:16px;font-size:12px;color:#fcd34d;line-height:1.8">'
+    +'💧 Toma un vaso de agua ahora<br>'
+    +'🕐 Descansa 10 min antes de tu próxima actividad<br>'
+    +'📅 Próxima sesión: mañana o pasado mañana'
+    +'</div>'
+    +'<button class="btn bp bf" style="font-size:14px;padding:13px;margin-bottom:8px" onclick="_tcView=false;_ed=today();go(\'ejercicio\')">🏃 Ver en Ejercicio</button>'
+    +'<button class="btn bf bg" style="font-size:13px;padding:10px" onclick="_tcView=false;render()">← Cerrar</button>';
+  c.innerHTML=h;
+}
+
+// VITALES
+var _vd=today();
+function rVit(c){
+  const dv=VITALS.filter(function(v){return v.date===_vd}).sort(function(a,b){return a.time.localeCompare(b.time)});
+  const lat=[].concat(VITALS).sort(function(a,b){return b.date.localeCompare(a.date)||b.time.localeCompare(a.time)})[0];
+  function bpS(s,d){if(!s||!d)return null;const sv=parseFloat(s),dv=parseFloat(d);if(sv>=180||dv>=120)return{t:'Crisis Hipertensiva',c:'var(--dng)'};if(sv>=140||dv>=90)return{t:'Hipertensión',c:'var(--dng)'};if(sv>=130||dv>=80)return{t:'Presión Elevada',c:'var(--wrn)'};if(sv>=120)return{t:'Elevada-Normal',c:'var(--wrn)'};return{t:'Normal',c:'var(--ok)'}}
+  function glC(gval){return!gval?'var(--txt)':parseFloat(gval)>126?'var(--dng)':parseFloat(gval)>100?'var(--wrn)':'var(--ok)'}
+  function pulseC(p){if(!p)return'var(--txt)';const v=parseFloat(p);return v<60?'var(--pur)':v>100?'var(--dng)':'var(--ok)'}
+  function pulseT(p){if(!p)return'';const v=parseFloat(p);return v<60?' Bradicardia':v>100?' Taquicardia':' Normal'}
+  let h='';
+  if(lat){const s=bpS(lat.bp_sys,lat.bp_dia);h+='<div class="card" style="background:linear-gradient(135deg,#0a2040,#102055)"><div style="font-size:11px;color:var(--mut);margin-bottom:10px">📍 Última — '+fdl(lat.date)+' '+lat.time+'</div><div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px"><div class="sb" style="background:rgba(0,0,0,.2)"><div class="sv" style="color:'+(s?s.c:'var(--txt)')+';font-size:16px">'+(lat.bp_sys||'—')+'/'+(lat.bp_dia||'—')+'</div><div class="sl">mmHg</div>'+(s?'<div style="font-size:9px;color:'+s.c+';margin-top:2px">'+s.t+'</div>':'')+'</div><div class="sb" style="background:rgba(0,0,0,.2)"><div class="sv" style="color:'+glC(lat.glucose)+'">'+(lat.glucose||'—')+'</div><div class="sl">Glucosa mg/dL</div></div><div class="sb" style="background:rgba(0,0,0,.2)"><div class="sv">'+(lat.weight||'—')+'</div><div class="sl">Peso kg</div></div><div class="sb" style="background:rgba(0,0,0,.2)"><div class="sv" style="color:'+pulseC(lat.pulse)+'">'+(lat.pulse||'—')+'</div><div class="sl">Pulso lpm</div>'+(lat.pulse?'<div style="font-size:9px;color:'+pulseC(lat.pulse)+';margin-top:2px">'+pulseT(lat.pulse)+'</div>':'')+'</div></div></div>'}
+  h+='<div style="display:flex;gap:8px;align-items:center;margin-bottom:12px"><input type="date" value="'+_vd+'" onchange="_vd=this.value;render()" style="flex:1"/><button class="btn bp bs" onclick="openVit()">+ Registrar</button></div>';
+  if(!dv.length)h+='<div class="empty"><div class="ei">❤️</div><div>Sin registros para esta fecha</div></div>';
+  dv.forEach(function(v){
+    const s=bpS(v.bp_sys,v.bp_dia);
+    const bpH=v.bp_sys?'<div><span style="font-weight:600;color:'+(s?s.c:'var(--txt)')+'">'+v.bp_sys+'/'+v.bp_dia+'</span> <span style="font-size:10px;color:var(--mut)">mmHg</span>'+(s?'<span style="font-size:9px;color:'+s.c+';margin-left:4px">'+s.t+'</span>':'')+'</div>':'';
+    const glH=v.glucose?'<div><span style="font-weight:600;color:'+glC(v.glucose)+'">'+v.glucose+'</span> <span style="font-size:10px;color:var(--mut)">mg/dL</span></div>':'';
+    const wtH=v.weight?'<div><span style="font-weight:600">'+v.weight+'</span> <span style="font-size:10px;color:var(--mut)">kg</span></div>':'';
+    const puH=v.pulse?'<div><span style="font-weight:600;color:'+pulseC(v.pulse)+'">'+v.pulse+'</span> <span style="font-size:10px;color:var(--mut)">lpm</span><span style="font-size:9px;color:'+pulseC(v.pulse)+';margin-left:3px">'+pulseT(v.pulse)+'</span></div>':'';
+    h+='<div class="card"><div style="display:flex;justify-content:space-between;align-items:flex-start"><div><div style="font-size:11px;color:var(--mut);margin-bottom:6px">🕐 '+v.time+'</div><div style="display:flex;gap:14px;flex-wrap:wrap">'+bpH+glH+wtH+puH+'</div>'+(v.notes?'<div style="font-size:11px;color:var(--dim);margin-top:5px">'+esc(v.notes)+'</div>':'')+'</div><button onclick="delVit(\''+v.id+'\')" style="background:none;border:none;color:var(--dng);cursor:pointer;font-size:16px">🗑</button></div></div>';
+  });
+  c.innerHTML=h;
+}
+function delVit(id){VITALS=VITALS.filter(function(v){return v.id!==id});saveAll();render()}
+function openVit(){
+  om(modal('vit','Registrar Vitales','<div class="g2">'+fg('Fecha',inp('vd','date','',today()))+fg('Hora',inp('vt','time','',nowt()))+fg('Presión Sistólica',inp('vs','number','120',''))+fg('Presión Diastólica',inp('va','number','80',''))+fg('Glucosa (mg/dL)',inp('vg','number','',''))+fg('Peso (kg)',inp('vw','number','',''))+fg('Pulso (lpm)',inp('vp','number','',''))+'</div><div id="vbps"></div>'+fg('Notas',inp('vn','text','Observaciones...',''))+'<button class="btn bp bf" style="margin-top:8px" onclick="saveVit()">💾 Guardar</button>'));
+  setTimeout(function(){['vs','va'].forEach(function(id){const e=g(id);if(e)e.addEventListener('input',updBP)})},100);
+}
+function updBP(){
+  const s=parseFloat(gv('vs')),d=parseFloat(gv('va')),e=g('vbps');if(!e)return;
+  if(!s||!d){e.innerHTML='';return}
+  let t='Normal',c='var(--ok)';
+  if(s>=180||d>=120){t='⚠️ CRISIS — Consulte médico inmediatamente';c='var(--dng)'}
+  else if(s>=140||d>=90){t='Hipertensión';c='var(--dng)'}
+  else if(s>=130||d>=80){t='Presión Elevada';c='var(--wrn)'}
+  else if(s>=120){t='Elevada-Normal';c='var(--wrn)'}
+  e.innerHTML='<div style="padding:8px;border-radius:8px;border:1px solid '+c+'40;background:'+c+'15;color:'+c+';font-size:12px;font-weight:600;margin-bottom:8px">🫀 '+t+'</div>'
+}
+function saveVit(){VITALS.push({id:uid(),date:gv('vd')||today(),time:gv('vt'),bp_sys:gv('vs'),bp_dia:gv('va'),glucose:gv('vg'),weight:gv('vw'),pulse:gv('vp'),notes:gv('vn')});saveAll();cm('vit');render()}
+
+// EXÁMENES
+const ETL={sangre:'🩸 Sangre',orina:'🧪 Orina',heces:'🔬 Heces',ecografia:'📡 Ecografía',ecg:'💓 ECG',rayos_x:'☢️ Rayos X',otro:'📋 Otro'};
+function rExam(c){
+  let h='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><div style="font-size:14px;font-weight:600">Exámenes ('+EXAMS.length+')</div><button class="btn bp bs" onclick="openExam()">+ Nuevo</button></div>';
+  if(!EXAMS.length)h+='<div class="empty"><div class="ei">🩺</div><div>No hay exámenes registrados</div><div style="font-size:11px;margin-top:4px">Sube un PDF o fotos del resultado</div></div>';
+  [].concat(EXAMS).sort(function(a,b){return b.date.localeCompare(a.date)}).forEach(function(ex){
+    const np=Object.keys(ex.parameters||{}).length;
+    const ap=Object.values(ex.parameters||{}).filter(function(p){return p.status==='alto'||p.status==='bajo'}).length;
+    h+='<div class="card" style="cursor:pointer" onclick="viewExam(\''+ex.id+'\')"><div style="display:flex;justify-content:space-between;align-items:flex-start"><div><div style="font-size:14px;font-weight:600">'+(ETL[ex.type]||ex.type)+'</div><div style="font-size:12px;color:var(--mut)">'+fdl(ex.date)+(ex.lab?' · '+esc(ex.lab):'')+'</div><div style="display:flex;gap:6px;margin-top:6px"><span class="pill pk">'+np+' params</span>'+(ap?'<span class="pill pw">⚠️ '+ap+' fuera rango</span>':'')+'</div></div><div style="display:flex;gap:6px"><span style="font-size:11px;color:var(--pri)">Ver →</span><button onclick="event.stopPropagation();delExam(\''+ex.id+'\')" style="background:none;border:none;color:var(--dng);cursor:pointer;margin-left:6px">🗑</button></div></div></div>';
+  });
+  c.innerHTML=h;
+}
+function delExam(id){if(confirm('¿Eliminar examen?')){EXAMS=EXAMS.filter(function(e){return e.id!==id});saveAll();render()}}
+
+function viewExam(id){
+  const ex=EXAMS.find(function(e){return e.id===id});if(!ex)return;
+  function sc(s){return s==='alto'?'var(--dng)':s==='bajo'?'var(--wrn)':s==='normal'?'var(--ok)':'var(--mut)'}
+  function se(s){return s==='alto'?'⬆️ ALTO':s==='bajo'?'⬇️ BAJO':s==='normal'?'✅ NORMAL':'—'}
+  const params=Object.entries(ex.parameters||{});
+  const nHigh=params.filter(function(p){return p[1].status==='alto'}).length;
+  const nLow=params.filter(function(p){return p[1].status==='bajo'}).length;
+  const nOk=params.length-nHigh-nLow;
+  const paramsHTML=params.map(function(p){
+    const n=p[0],d=p[1],col=sc(d.status),isAlert=d.status==='alto'||d.status==='bajo',nameClean=n.replace(/_/g,' ');
+    return '<div style="padding:10px 0;border-bottom:1px solid var(--bdr)">'
+      +'<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px">'
+      +'<div style="flex:1"><div style="font-size:13px;font-weight:600;color:'+(isAlert?col:'var(--txt)')+';line-height:1.3">'+esc(nameClean)+'</div>'
+      +(d.reference?'<div style="font-size:11px;color:var(--txt);margin-top:4px;line-height:1.5;background:var(--sur);padding:4px 8px;border-radius:6px;border:1px solid var(--bdr)">📏 Ref: '+esc(String(d.reference))+'</div>':'')
+      +'</div>'
+      +'<div style="text-align:right;flex-shrink:0"><div style="font-size:16px;font-weight:700;color:'+col+'">'+d.value+' <span style="font-size:11px;font-weight:400">'+(d.unit||'')+'</span></div>'
+      +'<div style="font-size:10px;font-weight:600;color:'+col+';background:'+col+'18;padding:2px 7px;border-radius:10px;margin-top:3px">'+se(d.status)+'</div>'
+      +'</div></div></div>';
+  }).join('');
+  om(modal('vex',(ETL[ex.type]||ex.type)+' — '+fdl(ex.date),
+    '<div style="font-size:12px;color:var(--mut);margin-bottom:12px">'+(ex.lab?'🏥 '+esc(ex.lab):'')+(ex.doctor?' · 👨‍⚕️ '+esc(ex.doctor):'')+'</div>'
+    +'<div style="display:flex;gap:8px;margin-bottom:14px">'
+    +'<div style="flex:1;background:#7f1d1d30;border:1px solid var(--dng)40;border-radius:8px;padding:8px;text-align:center"><div style="font-size:20px;font-weight:700;color:var(--dng)">'+nHigh+'</div><div style="font-size:10px;color:var(--dng)">Elevados</div></div>'
+    +'<div style="flex:1;background:#78350f30;border:1px solid var(--wrn)40;border-radius:8px;padding:8px;text-align:center"><div style="font-size:20px;font-weight:700;color:var(--wrn)">'+nLow+'</div><div style="font-size:10px;color:var(--wrn)">Bajos</div></div>'
+    +'<div style="flex:1;background:#052e1630;border:1px solid var(--ok)40;border-radius:8px;padding:8px;text-align:center"><div style="font-size:20px;font-weight:700;color:var(--ok)">'+nOk+'</div><div style="font-size:10px;color:var(--ok)">Normales</div></div>'
+    +'</div>'
+    +'<button class="btn bf" id="aibtn" onclick="aiInterp(\''+ex.id+'\')" style="background:var(--pur);color:#fff;margin-bottom:14px;font-size:13px;padding:11px">🤖 Interpretar con IA y comparar con examen anterior</button>'
+    +'<div id="airesult">'+(ex.aiInterpretation?'<div style="border-top:1px solid var(--bdr);padding-top:14px;margin-bottom:14px"><div style="font-size:13px;font-weight:700;color:var(--pri);margin-bottom:10px">🤖 Interpretación guardada'+(ex.aiPrevDate?' vs '+fdl(ex.aiPrevDate):'')+' <span style="font-size:10px;color:var(--dim)">('+fd(ex.aiInterpDate)+')</span></div><div style="font-size:12px;color:var(--txt);line-height:1.7;white-space:pre-line">'+esc(ex.aiInterpretation)+'</div><div style="font-size:10px;color:var(--dim);margin-top:10px">⚠️ Orientativo. Consulta con tu médico.</div></div>':'')+'</div>'
+    +'<div style="font-size:12px;font-weight:700;color:var(--mut);margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px">Todos los parámetros ('+params.length+')</div>'
+    +(paramsHTML||'<div style="color:var(--mut);text-align:center;padding:20px">Sin parámetros</div>')
+    +(ex.notes?'<div style="font-size:12px;color:var(--mut);margin-top:12px;padding-top:10px;border-top:1px solid var(--bdr)">'+esc(ex.notes)+'</div>':'')
+  ));
+}
+
+async function aiInterp(examId){
+  const ex=EXAMS.find(function(e){return e.id===examId});if(!ex)return;
+  const btn=g('aibtn'),res=g('airesult');
+  btn.textContent='⏳ Analizando...';btn.disabled=true;
+  if(res){res.style.display='block';res.innerHTML='<div style="text-align:center;padding:20px;color:var(--mut)">⏳ La IA está analizando tus resultados...</div>'}
+  const params=Object.entries(ex.parameters||{});
+  const paramStr=params.map(function(p){return p[0].replace(/_/g,' ')+': '+p[1].value+' '+(p[1].unit||'')+' (ref: '+(p[1].reference||'?')+') ['+p[1].status+']'}).join('\n');
+  const prev=[].concat(EXAMS).filter(function(e){return e.id!==examId&&e.type===ex.type}).sort(function(a,b){return b.date.localeCompare(a.date)})[0]||null;
+  let prevStr='';
+  if(prev){const pp=Object.entries(prev.parameters||{});prevStr='\n\nEXAMEN ANTERIOR ('+prev.date+'):\n'+pp.map(function(p){return p[0].replace(/_/g,' ')+': '+p[1].value+' '+(p[1].unit||'')+' ['+p[1].status+']'}).join('\n')}
+  const sys='Eres medico internista experto. Condiciones del paciente: '+(P.conditions||'No especificadas')+'. Responde en espanol claro sin asteriscos ni markdown.';
+  const comp=prev?'\n4. COMPARACION CON EXAMEN ANTERIOR ('+prev.date+'): Que mejoro, que empeoro, que se mantiene':'';
+  const prompt='EXAMEN ('+ex.date+') - '+(ETL[ex.type]||ex.type)+':\n'+paramStr+prevStr+'\nProvee:\n1. PUNTOS CRITICOS: Parametros mas preocupantes con valores reales\n2. INTERPRETACION: Estado de salud actual\n3. RECOMENDACIONES: Acciones a consultar con el medico'+comp;
+  try{
+    const raw=await callAPI(sys,prompt,null,false,null);
+    const sections=raw.split(/\n(?=\d+\.)/);
+    const formatted=sections.map(function(s){
+      const ls=s.trim().split('\n');const title=ls[0];const body=ls.slice(1).join('\n');
+      const isAlert=title.toLowerCase().indexOf('critic')>=0;const isComp=title.toLowerCase().indexOf('compar')>=0;
+      const col=isAlert?'var(--dng)':isComp?'var(--pri)':'var(--wrn)';
+      return '<div style="background:'+col+'10;border-left:3px solid '+col+';border-radius:0 8px 8px 0;padding:10px 12px;margin-bottom:10px"><div style="font-size:12px;font-weight:700;color:'+col+';margin-bottom:6px">'+esc(title)+'</div><div style="font-size:12px;color:var(--txt);line-height:1.7;white-space:pre-line">'+esc(body)+'</div></div>';
+    }).join('');
+    ex.aiInterpretation=raw;ex.aiInterpDate=today();if(prev)ex.aiPrevDate=prev.date;saveAll();
+    if(res)res.innerHTML='<div style="border-top:1px solid var(--bdr);padding-top:14px;margin-bottom:14px"><div style="font-size:13px;font-weight:700;color:var(--pri);margin-bottom:10px">🤖 Interpretación Clínica con IA'+(prev?' — vs '+fdl(prev.date):'')+'</div>'+(formatted||'<div style="font-size:12px;color:var(--txt);line-height:1.6;white-space:pre-line">'+esc(raw)+'</div>')+'<div style="font-size:10px;color:var(--dim);margin-top:10px;padding-top:8px;border-top:1px solid var(--bdr)">⚠️ Orientativo. Consulta siempre con tu médico tratante.</div></div>';
+  }catch(e){if(res)res.innerHTML='<div style="color:var(--dng);font-size:12px;padding:10px">Error: '+esc(e.message)+'</div>'}
+  btn.textContent='🔄 Volver a interpretar';btn.disabled=false;
+}
+
+var _ep={},_imgs=[],_pdfB64=null,_fmode='img';
+function openExam(){
+  _ep={};_imgs=[];_pdfB64=null;_fmode='img';
+  om(modal('exam','Nuevo Examen','<div class="tb"><button class="tbb on" id="m_img" onclick="setFMode(\'img\')">📷 Imágenes</button><button class="tbb" id="m_pdf" onclick="setFMode(\'pdf\')">📄 PDF</button></div><div class="al ai" style="margin-bottom:10px" id="exam_tip">Sube fotos o capturas del resultado. Puedes seleccionar varias.</div><div style="background:var(--card);border:2px dashed var(--bdr);border-radius:10px;padding:20px;text-align:center;margin-bottom:10px" onclick="trigFI()"><input type="file" id="ef_img" accept="image/*" multiple onchange="handleImgs(event)" style="display:none"/><input type="file" id="ef_pdf" accept="application/pdf" onchange="handlePDF(event)" style="display:none"/><div id="efs"><div style="font-size:32px;margin-bottom:8px">📷</div><div style="font-size:13px;color:var(--mut);margin-bottom:10px">Toca para seleccionar</div><button class="btn bp" onclick="event.stopPropagation();trigFI()">Seleccionar archivo</button></div></div><div id="ipreview" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px"></div><button class="btn bf" id="ai_ex_btn" onclick="runExamAI()" style="display:none;background:var(--pur);color:#fff;margin-bottom:10px;font-size:14px;padding:12px">🤖 Extraer parámetros con IA</button><div id="ai_ex_prog" class="al aw" style="display:none">⏳ Analizando...</div><div id="es_mn" style="display:none"><div class="g2">'+fg('Tipo',sel('et3',Object.entries(ETL).map(function(e){return[e[0],e[1]]}),'sangre'))+fg('Fecha',inp('edt','date','',today()))+fg('Laboratorio',inp('elab','text','Nombre lab',''))+fg('Médico',inp('edoc','text','Dr. ...',''))+'</div><div style="font-size:13px;font-weight:600;margin:10px 0 8px">Parámetros</div><div id="plist"></div><div style="background:var(--card);border-radius:8px;padding:12px;margin-bottom:10px"><div style="font-size:11px;color:var(--mut);margin-bottom:8px;font-weight:600">+ Agregar Parámetro Manual</div><div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:6px;margin-bottom:6px"><input id="pmn" placeholder="Nombre" style="font-size:12px"/><input id="pmv" type="number" placeholder="Valor" style="font-size:12px"/><input id="pmu" placeholder="Unidad" style="font-size:12px"/></div><div style="display:grid;grid-template-columns:2fr 1fr;gap:6px;margin-bottom:8px"><input id="pmr" placeholder="Referencia (ej: 70-100)" style="font-size:12px"/><select id="pms" style="font-size:12px"><option value="normal">Normal</option><option value="alto">Alto</option><option value="bajo">Bajo</option></select></div><button class="btn bp bf bs" onclick="addP()">+ Agregar</button></div>'+fg('Notas','<textarea id="ent" rows="2" style="resize:none" placeholder="Observaciones..."></textarea>')+'<button class="btn bp bf" onclick="saveExam()">💾 Guardar Examen</button></div>'));
+  renderPL();
+}
+function setFMode(m){
+  _fmode=m;_imgs=[];_pdfB64=null;
+  const pi=g('ipreview');if(pi)pi.innerHTML='';
+  g('m_img').classList.toggle('on',m==='img');g('m_pdf').classList.toggle('on',m==='pdf');
+  const tip=g('exam_tip');if(tip)tip.innerHTML=m==='pdf'?'Sube el PDF del laboratorio directamente. La IA leerá todas las páginas.':'Sube fotos o capturas. Puedes seleccionar varias imágenes.';
+  const efs=g('efs');if(efs)efs.innerHTML=(m==='pdf'?'<div style="font-size:32px;margin-bottom:8px">📄</div><div style="font-size:13px;color:var(--mut);margin-bottom:10px">Toca para seleccionar el PDF</div>':'<div style="font-size:32px;margin-bottom:8px">📷</div><div style="font-size:13px;color:var(--mut);margin-bottom:10px">Toca para seleccionar imágenes</div>')+'<button class="btn bp" onclick="event.stopPropagation();trigFI()">Seleccionar archivo</button>';
+  const btn=g('ai_ex_btn');if(btn)btn.style.display='none';
+}
+function trigFI(){const el=g(_fmode==='pdf'?'ef_pdf':'ef_img');if(el)el.click()}
+function handlePDF(ev){
+  const f=ev.target.files[0];if(!f)return;
+  const r=new FileReader();
+  r.onload=function(e){
+    _pdfB64=e.target.result.split(',')[1];_imgs=[];
+    const pi=g('ipreview');if(pi)pi.innerHTML='<div style="background:var(--sur);border-radius:8px;padding:12px;display:flex;align-items:center;gap:10px;width:100%"><span style="font-size:28px">📄</span><div><div style="font-size:12px;font-weight:600;color:var(--ok)">✅ PDF cargado</div><div style="font-size:11px;color:var(--mut)">'+esc(f.name)+'</div><div style="font-size:10px;color:var(--dim)">'+(f.size/1024).toFixed(0)+' KB</div></div></div>';
+    const btn=g('ai_ex_btn');if(btn)btn.style.display='block';
+    const efs=g('efs');if(efs)efs.style.display='none';
+  };
+  r.readAsDataURL(f);
+}
+function handleImgs(ev){
+  const files=Array.from(ev.target.files);if(!files.length)return;
+  _imgs=[];_pdfB64=null;
+  const pi=g('ipreview');if(pi)pi.innerHTML='<div style="font-size:11px;color:var(--mut)">Cargando '+files.length+' imagen(es)...</div>';
+  let loaded=0;
+  files.forEach(function(f){
+    const r=new FileReader();
+    r.onload=function(e){
+      _imgs.push({b64:e.target.result.split(',')[1],mime:f.type,name:f.name});loaded++;
+      if(loaded===files.length){
+        if(pi)pi.innerHTML=_imgs.map(function(img){return'<div style="display:inline-block;margin:4px"><img src="data:'+img.mime+';base64,'+img.b64+'" style="width:72px;height:72px;object-fit:cover;border-radius:8px;border:2px solid var(--pri)"/><div style="font-size:9px;color:var(--mut);text-align:center;margin-top:2px">'+img.name.slice(0,10)+'</div></div>'}).join('');
+        const btn=g('ai_ex_btn');if(btn)btn.style.display='block';
+      }
+    };
+    r.readAsDataURL(f);
+  });
+}
+async function runExamAI(){
+  const hasPDF=!!_pdfB64,hasImgs=_imgs&&_imgs.length>0;
+  if(!hasPDF&&!hasImgs){alert('Selecciona un archivo primero.');return}
+  const btn=g('ai_ex_btn'),prog=g('ai_ex_prog');
+  btn.style.display='none';if(prog)prog.style.display='block';
+  const sys='Eres analizador de resultados medicos. Extrae TODOS los parametros. Responde SOLO con JSON valido sin texto extra: {"examType":"sangre|orina|heces|ecografia|ecg|rayos_x|otro","examDate":"YYYY-MM-DD","lab":"nombre","doctor":"nombre","parameters":{"NombreParam":{"value":12.5,"unit":"mg/dL","reference":"10-20","status":"normal|alto|bajo"}}}';
+  let allParams={},examMeta={examType:'sangre',examDate:null,lab:null,doctor:null},totalEx=0,errors=0;
+  try{
+    if(hasPDF){
+      if(prog)prog.innerHTML='⏳ Leyendo PDF completo con IA...';
+      try{
+        const raw=await callAPI(sys,'Extrae TODOS los parametros de laboratorio de este PDF. Solo JSON.',null,true,_pdfB64);
+        const r=repairJSON(raw);
+        if(r&&r.parameters&&Object.keys(r.parameters).length>0){Object.assign(allParams,r.parameters);totalEx+=Object.keys(r.parameters).length;if(r.examDate)examMeta.examDate=r.examDate;if(r.lab)examMeta.lab=r.lab;if(r.doctor)examMeta.doctor=r.doctor;if(r.examType)examMeta.examType=r.examType}
+        else throw new Error('No se encontraron parametros en el PDF. Puede ser escaneado — usa la opcion Imagenes.');
+      }catch(e){errors++;if(prog)prog.innerHTML='⚠️ '+esc(e.message);await new Promise(function(r){setTimeout(r,2000)})}
+    }else{
+      const BATCH=4;const batches=[];
+      for(let i=0;i<_imgs.length;i+=BATCH)batches.push(_imgs.slice(i,i+BATCH));
+      for(let i=0;i<batches.length;i++){
+        if(prog)prog.innerHTML='⏳ Procesando lote '+(i+1)+' de '+batches.length+'...';
+        try{
+          const raw=await callAPI(sys,'Extrae TODOS los parametros de estas imagenes de resultados medicos. Solo JSON.',batches[i],false,null);
+          const r=repairJSON(raw);
+          if(r&&r.parameters){Object.assign(allParams,r.parameters);totalEx+=Object.keys(r.parameters).length;if(r.examDate&&!examMeta.examDate)examMeta.examDate=r.examDate;if(r.lab&&!examMeta.lab)examMeta.lab=r.lab;if(r.doctor&&!examMeta.doctor)examMeta.doctor=r.doctor;if(r.examType)examMeta.examType=r.examType}
+        }catch(e){errors++;console.warn('Batch error:',e)}
+        if(i<batches.length-1)await new Promise(function(r){setTimeout(r,1000)});
+      }
+    }
+    if(Object.keys(allParams).length>0){
+      _ep=Object.assign({},_ep,allParams);
+      if(examMeta.examDate&&g('edt'))g('edt').value=examMeta.examDate;
+      if(examMeta.lab&&g('elab'))g('elab').value=examMeta.lab||'';
+      if(examMeta.doctor&&g('edoc'))g('edoc').value=examMeta.doctor||'';
+      if(examMeta.examType&&g('et3'))g('et3').value=examMeta.examType||'sangre';
+      g('es_mn').style.display='block';renderPL();
+      alert('✅ '+totalEx+' parametros extraidos.'+(errors>0?' ('+errors+' lote(s) con error)':'')+'\n\nRevisa y toca Guardar Examen.');
+    }else{
+      const tip=hasPDF?'El PDF puede ser escaneado — usa la opcion Imagenes.':'Intenta con fotos mas claras.';
+      alert('No se encontraron parametros. '+tip);
+    }
+  }catch(e){console.error(e);alert('Error: '+e.message)}
+  if(prog)prog.style.display='none';if(btn){btn.style.display='block';btn.textContent='🤖 Extraer parametros con IA';btn.disabled=false}
+}
+function renderPL(){
+  const el=g('plist');if(!el)return;
+  const entries=Object.entries(_ep||{});
+  if(!entries.length){el.innerHTML='<div style="font-size:11px;color:var(--dim);text-align:center;padding:8px">Sin parametros aun</div>';return}
+  function sc(s){return s==='alto'?'var(--dng)':s==='bajo'?'var(--wrn)':'var(--ok)'}
+  el.innerHTML=entries.map(function(p){const n=p[0],d=p[1];return'<div style="display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid var(--bdr);font-size:12px"><div style="flex:1"><span style="font-weight:500">'+esc(n.replace(/_/g,' '))+'</span>'+(d.reference?'<div style="font-size:10px;color:var(--mut);margin-top:2px;background:var(--sur);padding:2px 6px;border-radius:4px">📏 '+esc(String(d.reference))+'</div>':'')+'</div><div style="display:flex;align-items:center;gap:8px"><span style="color:'+sc(d.status)+';font-weight:700">'+d.value+' '+(d.unit||'')+'</span><button onclick="delP(\''+esc(n)+'\')" style="background:none;border:none;color:var(--dng);cursor:pointer;font-size:13px">×</button></div></div>'}).join('');
+  if(g('es_mn'))g('es_mn').style.display='block';
+}
+function addP(){const n=gv('pmn').trim(),v=gv('pmv');if(!n||!v)return;_ep[n]={value:parseFloat(v),unit:gv('pmu'),reference:gv('pmr'),status:gv('pms')};['pmn','pmv','pmu','pmr'].forEach(function(id){const e=g(id);if(e)e.value=''});renderPL()}
+function delP(n){delete _ep[n];renderPL()}
+function saveExam(){EXAMS.push({id:uid(),date:gv('edt')||today(),type:gv('et3')||'sangre',lab:gv('elab'),doctor:gv('edoc'),notes:gv('ent'),parameters:Object.assign({},_ep)});_ep={};saveAll();cm('exam');render()}
+
+// GRÁFICOS
+var _gp=30,_gpar='';
+function rGraf(c){
+  const eps=[].concat.apply([],EXAMS.map(function(e){return Object.keys(e.parameters||{})})).filter(function(v,i,a){return a.indexOf(v)===i});
+  c.innerHTML='<div class="fg"><label class="lb">Seleccionar Parámetro</label>'
+  +'<select id="gfp" onchange="_gpar=this.value;render()">'
+  +'<option value="">-- Seleccionar --</option>'
+  +'<optgroup label="🫀 Signos Vitales"><option value="bp_sys"'+((_gpar==='bp_sys')?' selected':'')+'>Presión Sistólica (mmHg)</option><option value="bp_dia"'+((_gpar==='bp_dia')?' selected':'')+'>Presión Diastólica (mmHg)</option><option value="pulse"'+((_gpar==='pulse')?' selected':'')+'>Pulso (lpm)</option><option value="glucose"'+((_gpar==='glucose')?' selected':'')+'>Glucosa (mg/dL)</option><option value="weight"'+((_gpar==='weight')?' selected':'')+'>Peso (kg)</option></optgroup>'
+  +'<optgroup label="🩸 Exámenes">'+eps.map(function(p){return'<option value="ex:'+esc(p)+'"'+(_gpar==='ex:'+p?' selected':'')+'>'+esc(p.replace(/_/g,' '))+'</option>'}).join('')+'</optgroup>'
+  +'<optgroup label="🥗 Nutrición">'+'calories,Calorías (kcal);protein,Proteína (g);sodium,Sodio (mg);potassium,Potasio (mg);phosphorus,Fósforo (mg);cholesterol,Colesterol (mg)'.split(';').map(function(x){const p=x.split(',');return'<option value="diet:'+p[0]+'"'+(_gpar==='diet:'+p[0]?' selected':'')+'>'+p[1]+'</option>'}).join('')+'</optgroup>'
+  +'<optgroup label="🚶 Ejercicio">'+'steps,Pasos;caloriesBurned,Cal quemadas;minutes,Minutos'.split(';').map(function(x){const p=x.split(',');return'<option value="exa:'+p[0]+'"'+(_gpar==='exa:'+p[0]?' selected':'')+'>'+p[1]+'</option>'}).join('')+'</optgroup>'
+  +'</select></div>'
+  +periodBtns(_gp,'_gp')
+  +'<div id="garea">'+(_gpar?buildGraf(_gpar,_gp):'<div class="empty"><div class="ei">📈</div><div>Selecciona un parámetro para ver su evolución</div></div>')+'</div>';
+}
+function buildGraf(par,period){
+  const days=lastNDays(period);
+  function getDayVal(day){
+    var val=null;
+    if(['bp_sys','bp_dia','glucose','weight','pulse'].indexOf(par)>=0){var dv=VITALS.filter(function(v){return v.date===day&&v[par]});if(dv.length){var vs2=dv.map(function(v){return parseFloat(v[par])}).filter(function(x){return!isNaN(x)});if(vs2.length)val=vs2.reduce(function(s,v){return s+v},0)/vs2.length}}
+    else if(par.indexOf('ex:')===0){var pn=par.slice(3);var ex=EXAMS.filter(function(e){return e.date===day&&e.parameters&&e.parameters[pn]});if(ex.length)val=parseFloat(ex[0].parameters[pn].value)}
+    else if(par.indexOf('diet:')===0){var k=par.slice(5);var t=MEALS.filter(function(m){return m.date===day}).reduce(function(s,m){return s+nval(m,k)},0);if(t>0)val=t}
+    else if(par.indexOf('exa:')===0){var k2=par.slice(4);var t2=EX.filter(function(e){return e.date===day}).reduce(function(s,e){return s+(parseFloat(e[k2])||0)},0);if(t2>0)val=t2}
+    return val;
+  }
+  const data=[];
+  if(period>=90){
+    groupByWeek(days,getDayVal).forEach(function(w){if(w.avg!==null)data.push({date:w.lbl,value:parseFloat(w.avg.toFixed(2))})});
+  }else{
+    days.forEach(function(day){var val=getDayVal(day);if(val!==null)data.push({date:fd(day),value:parseFloat(val.toFixed(2))})});
+  }
+  if(!data.length)return'<div class="empty"><div class="ei">📊</div><div>Sin datos en este período</div></div>';
+  const vs=data.map(function(d){return d.value});
+  const mn=Math.min.apply(null,vs).toFixed(1),mx=Math.max.apply(null,vs).toFixed(1),av=(vs.reduce(function(s,v){return s+v},0)/vs.length).toFixed(1);
+  var weekly=period>=90;
+  window._gLabels=data.map(function(d){return d.date});window._gVals=vs;
+  setTimeout(function(){var ctx=document.getElementById('gc');if(!ctx)return;if(window._ci)window._ci.destroy();window._ci=new Chart(ctx,{type:'line',data:{labels:window._gLabels,datasets:[{label:'Valor',data:window._gVals,borderColor:'#00d4aa',backgroundColor:'rgba(0,212,170,.12)',borderWidth:2,pointBackgroundColor:'#00d4aa',pointRadius:weekly?3:4,tension:.35,fill:true}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{backgroundColor:'#162a4a',titleColor:'#8ba3bf',bodyColor:'#e8f4f8',borderColor:'#1e3a5f',borderWidth:1}},scales:{x:{ticks:{color:'#3a5a7a',font:{size:9},maxRotation:0,autoSkip:true,maxTicksLimit:weekly?12:10},grid:{color:'#1e3a5f'}},y:{ticks:{color:'#3a5a7a',font:{size:10}},grid:{color:'#1e3a5f'}}}}})},80);
+  return'<div class="card"><div class="cw"><canvas id="gc"></canvas></div><div class="g3" style="margin-top:12px"><div class="sb"><div class="sv" style="color:var(--pri);font-size:18px">'+mn+'</div><div class="sl">Mínimo</div></div><div class="sb"><div class="sv" style="color:var(--acc);font-size:18px">'+av+'</div><div class="sl">Promedio</div></div><div class="sb"><div class="sv" style="color:var(--wrn);font-size:18px">'+mx+'</div><div class="sl">Máximo</div></div></div><div style="font-size:11px;color:var(--mut);text-align:center;margin-top:8px">'+data.length+' '+(weekly?'semanas':'registros')+' · '+period+' días'+(weekly?' · promedio semanal':'')+'</div></div>';
+}
+
+// REPORTES
+var _rp=30,_rSp=-1;
+function rRep(c){
+  var days=lastNDays(_rp),from=days[0],to=days[days.length-1];
+  var pv=[].concat(VITALS).filter(function(v){return v.date>=from&&v.date<=to}).sort(function(a,b){return(a.date+a.time).localeCompare(b.date+b.time)});
+  var ameds=MEDS.filter(function(m){return m.active});
+  var specs=P.specialists||[];
+  var lastEx=[].concat(EXAMS).sort(function(a,b){return b.date.localeCompare(a.date)})[0]||null;
+  // Adherencia
+  var adh=ameds.map(function(m){var sch=(m.times||['08:00']).length*_rp;var tk=DOSES.filter(function(d){return d.medId===m.id&&d.date>=from&&d.date<=to&&d.taken}).length;return{id:m.id,name:m.name,dose:m.dose,unit:m.unit,times:m.times,indication:m.indication,sch:sch,tk:tk,pct:sch>0?Math.min(100,Math.round(tk/sch*100)):null}});
+  var adhFiltered=adh.filter(function(m){return m.pct!==null});
+  var oAdh=adhFiltered.length?Math.round(adhFiltered.reduce(function(s,m){return s+m.pct},0)/adhFiltered.length):null;
+  // Stats vitales
+  function vs(arr,key){var v=arr.filter(function(x){return x[key]}).map(function(x){return parseFloat(x[key])}).filter(function(x){return!isNaN(x)});if(!v.length)return null;return{mn:Math.min.apply(null,v).toFixed(0),mx:Math.max.apply(null,v).toFixed(0),av:(v.reduce(function(s,x){return s+x},0)/v.length).toFixed(0)}}
+  var vBP=pv.filter(function(v){return v.bp_sys&&v.bp_dia}),vGl=pv.filter(function(v){return v.glucose}),vWt=pv.filter(function(v){return v.weight}),vPu=pv.filter(function(v){return v.pulse});
+  var stS=vs(vBP,'bp_sys'),stD=vs(vBP,'bp_dia'),stG=vs(vGl,'glucose'),stW=vs(vWt,'weight'),stPu=vs(vPu,'pulse');
+  function statRow(label,s,unit,col){if(!s)return'';return'<div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--bdr)22"><span style="font-size:12px;color:var(--mut)">'+label+'</span><span style="font-size:12px"><span style="color:var(--pri)">'+s.mn+'</span><span style="color:var(--dim)"> / </span><span style="color:'+col+';font-weight:700">⌀'+s.av+'</span><span style="color:var(--dim)"> / </span><span style="color:var(--dng)">'+s.mx+'</span><span style="font-size:10px;color:var(--dim)"> '+unit+'</span></span></div>'}
+  // Selector de especialista
+  var curSpec=_rSp>=0&&specs[_rSp]?specs[_rSp]:null;
+  var spPhone=curSpec?curSpec.wa:(P.doctorWA||'');
+  var spName=curSpec?curSpec.name:'tu médico';
+  var spBar='<div style="display:flex;gap:6px;overflow-x:auto;padding-bottom:2px;margin-bottom:10px">'
+    +'<button class="tbb'+(_rSp===-1?' on':'')+'" onclick="_rSp=-1;render()" style="flex:0 0 auto;white-space:nowrap">📋 General</button>'
+    +specs.map(function(s,i){return'<button class="tbb'+(_rSp===i?' on':'')+'" onclick="_rSp='+i+';render()" style="flex:0 0 auto;white-space:nowrap">'+esc(s.specialty||s.name)+'</button>'}).join('')
+    +'<button onclick="openSpecialist()" style="flex:0 0 auto;background:none;border:1px dashed var(--bdr);border-radius:8px;padding:6px 10px;color:var(--mut);font-size:11px;cursor:pointer;white-space:nowrap">+ Esp.</button></div>';
+  var h='<div class="card"><div class="ctt">📋 Informe para Especialista</div>'+spBar
+    +'<label class="lb">Período</label>'+periodBtns(_rp,'_rp')+'</div>';
+  // Medicamentos activos
+  h+='<div class="card"><div class="ctt">💊 Medicamentos Activos ('+ameds.length+')</div>'
+    +'<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse">'
+    +'<tr><th style="text-align:left;font-size:9px;color:var(--mut);padding:4px 2px;border-bottom:1px solid var(--bdr)">MEDICAMENTO</th>'
+    +'<th style="font-size:9px;color:var(--mut);padding:4px 2px;border-bottom:1px solid var(--bdr);text-align:center">DOSIS</th>'
+    +'<th style="font-size:9px;color:var(--mut);padding:4px 2px;border-bottom:1px solid var(--bdr);text-align:center">HORARIOS</th>'
+    +'<th style="font-size:9px;color:var(--mut);padding:4px 2px;border-bottom:1px solid var(--bdr);text-align:center">INDICACIÓN</th></tr>'
+    +ameds.map(function(m){return'<tr style="border-bottom:1px solid var(--bdr)18"><td style="padding:5px 2px;font-size:12px;font-weight:600">'+esc(m.name)+'</td><td style="padding:5px 2px;font-size:11px;color:var(--pri);text-align:center">'+m.dose+' '+m.unit+'</td><td style="padding:5px 2px;font-size:11px;color:var(--mut);text-align:center">'+(m.times||[]).join(' / ')+'</td><td style="padding:5px 2px;font-size:10px;color:var(--dim);text-align:center">'+esc(m.indication||'—')+'</td></tr>'}).join('')
+    +'</table></div></div>';
+  // Evolución vitales
+  h+='<div class="card"><div class="ctt">❤️ Evolución de Vitales — '+_rp+' días</div>';
+  if(pv.length){
+    h+=statRow('Presión Sistólica',stS,'mmHg','var(--dng)')+statRow('Presión Diastólica',stD,'mmHg','var(--acc)')+statRow('Pulso',stPu,'lpm','var(--pur)')+statRow('Glucosa',stG,'mg/dL','var(--wrn)')+statRow('Peso',stW,'kg','var(--pri)');
+    if(vBP.length)h+='<div style="font-size:10px;color:var(--mut);margin:10px 0 4px;font-weight:600;text-transform:uppercase;letter-spacing:.5px">Presión Arterial (mmHg)</div><div style="position:relative;height:130px"><canvas id="rcBP"></canvas></div>';
+    if(vPu.length)h+='<div style="font-size:10px;color:var(--mut);margin:10px 0 4px;font-weight:600;text-transform:uppercase;letter-spacing:.5px">Pulso (lpm)</div><div style="position:relative;height:110px"><canvas id="rcPU"></canvas></div>';
+    if(vGl.length)h+='<div style="font-size:10px;color:var(--mut);margin:10px 0 4px;font-weight:600;text-transform:uppercase;letter-spacing:.5px">Glucosa (mg/dL)</div><div style="position:relative;height:110px"><canvas id="rcGL"></canvas></div>';
+    if(vWt.length)h+='<div style="font-size:10px;color:var(--mut);margin:10px 0 4px;font-weight:600;text-transform:uppercase;letter-spacing:.5px">Peso (kg)</div><div style="position:relative;height:110px"><canvas id="rcWT"></canvas></div>';
+    h+='<div style="font-size:10px;color:var(--mut);margin:14px 0 6px;font-weight:600;text-transform:uppercase;letter-spacing:.5px">Todas las mediciones ('+pv.length+')</div>'
+      +'<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;min-width:280px">'
+      +'<tr><th style="text-align:left;font-size:9px;color:var(--mut);padding:4px 3px;border-bottom:1px solid var(--bdr)">FECHA</th><th style="font-size:9px;color:var(--mut);padding:4px 3px;border-bottom:1px solid var(--bdr)">HORA</th><th style="font-size:9px;color:var(--mut);padding:4px 3px;border-bottom:1px solid var(--bdr);text-align:center">PA (mmHg)</th><th style="font-size:9px;color:var(--mut);padding:4px 3px;border-bottom:1px solid var(--bdr);text-align:center">PULSO</th><th style="font-size:9px;color:var(--mut);padding:4px 3px;border-bottom:1px solid var(--bdr);text-align:center">GLUC</th><th style="font-size:9px;color:var(--mut);padding:4px 3px;border-bottom:1px solid var(--bdr);text-align:center">PESO</th></tr>'
+      +pv.map(function(v){var bpV=v.bp_sys&&v.bp_dia?v.bp_sys+'/'+v.bp_dia:'—';var bpC='var(--txt)';if(v.bp_sys){var sv=parseFloat(v.bp_sys);bpC=sv>=140?'var(--dng)':sv>=130?'var(--wrn)':'var(--ok)'}var glC='var(--txt)';if(v.glucose){var gv2=parseFloat(v.glucose);glC=gv2>126?'var(--dng)':gv2>100?'var(--wrn)':'var(--ok)'}var puC='var(--txt)';if(v.pulse){var pv2=parseFloat(v.pulse);puC=pv2<60?'var(--pur)':pv2>100?'var(--dng)':'var(--ok)'}return'<tr style="border-bottom:1px solid var(--bdr)18"><td style="padding:5px 3px;font-size:11px;color:var(--mut)">'+fd(v.date)+'</td><td style="padding:5px 3px;font-size:11px;color:var(--dim)">'+v.time+'</td><td style="padding:5px 3px;font-size:11px;font-weight:600;color:'+bpC+';text-align:center">'+bpV+'</td><td style="padding:5px 3px;font-size:11px;font-weight:600;color:'+puC+';text-align:center">'+(v.pulse||'—')+'</td><td style="padding:5px 3px;font-size:11px;font-weight:600;color:'+glC+';text-align:center">'+(v.glucose||'—')+'</td><td style="padding:5px 3px;font-size:11px;text-align:center">'+(v.weight||'—')+'</td></tr>'}).join('')
+      +'</table></div>';
+  }else{h+='<div style="color:var(--mut);font-size:12px;padding:10px 0;text-align:center">Sin vitales en los últimos '+_rp+' días</div>'}
+  h+='</div>';
+  // Último examen
+  if(lastEx){
+    var params=Object.entries(lastEx.parameters||{}).sort(function(a,b){var o={alto:0,bajo:1,normal:2};return(o[a[1].status]||3)-(o[b[1].status]||3)});
+    h+='<div class="card"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px"><div class="ctt" style="margin-bottom:0">🩺 Parámetros de Laboratorio</div><div style="font-size:10px;color:var(--mut)">'+fdl(lastEx.date)+(lastEx.lab?' · '+esc(lastEx.lab):'')+'</div></div>'
+      +'<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse">'
+      +'<tr><th style="text-align:left;font-size:9px;color:var(--mut);padding:4px 3px;border-bottom:1px solid var(--bdr)">PARÁMETRO</th><th style="font-size:9px;color:var(--mut);padding:4px 3px;border-bottom:1px solid var(--bdr);text-align:center">VALOR</th><th style="font-size:9px;color:var(--mut);padding:4px 3px;border-bottom:1px solid var(--bdr);text-align:center">REFERENCIA</th><th style="font-size:9px;color:var(--mut);padding:4px 3px;border-bottom:1px solid var(--bdr);text-align:center">ESTADO</th></tr>'
+      +params.map(function(p){var n=p[0],d=p[1];var c=d.status==='alto'?'var(--dng)':d.status==='bajo'?'var(--wrn)':'var(--ok)';var ico=d.status==='alto'?'⬆️':d.status==='bajo'?'⬇️':'✅';return'<tr style="border-bottom:1px solid var(--bdr)18"><td style="padding:5px 3px;font-size:11px">'+esc(n.replace(/_/g,' '))+'</td><td style="padding:5px 3px;font-size:12px;font-weight:700;color:'+c+';text-align:center">'+d.value+' <span style="font-size:9px;font-weight:400">'+(d.unit||'')+'</span></td><td style="padding:5px 3px;font-size:10px;color:var(--dim);text-align:center">'+(d.reference||'—')+'</td><td style="padding:5px 3px;text-align:center;font-size:14px">'+ico+'</td></tr>'}).join('')
+      +'</table></div></div>';
+  }
+  // Adherencia
+  h+='<div class="card"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><div class="ctt" style="margin-bottom:0">📊 Adherencia al Tratamiento</div>'
+    +(oAdh!==null?'<span class="pill '+(oAdh>=80?'pk':oAdh>=50?'pw':'pd')+'">'+oAdh+'% global</span>':'')+'</div>'
+    +adh.map(function(m){var c=m.pct===null?'var(--dim)':m.pct>=80?'var(--ok)':m.pct>=50?'var(--wrn)':'var(--dng)';return'<div style="margin-bottom:10px"><div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:4px"><span>'+esc(m.name)+'</span><span style="color:'+c+';font-weight:600">'+(m.pct!==null?m.pct+'% <span style="font-weight:400;color:var(--dim)">('+m.tk+'/'+m.sch+')</span>':'sin registro')+'</span></div>'+(m.pct!==null?'<div style="height:5px;background:var(--bdr);border-radius:3px"><div style="height:5px;background:'+c+';width:'+m.pct+'%;border-radius:3px"></div></div>':'')+'</div>'}).join('')
+    +'</div>';
+  h+='<button class="btn bw bf" style="padding:14px;font-size:14px;margin-bottom:8px" onclick="doWAReport()">📱 WhatsApp a '+esc(spName)+'</button>';
+  h+='<button class="btn bp bf" style="padding:12px;font-size:13px" onclick="doPrint('+_rp+')">🖨️ Imprimir / PDF</button>';
+  c.innerHTML=h;
+  if(pv.length){setTimeout(function(){
+    if(vBP.length)renderRepChart('rcBP',vBP,['bp_sys','bp_dia'],['PA Sistólica','PA Diastólica'],['#ef4444','#f97316'],_rp);
+    if(vPu.length)renderRepChart('rcPU',vPu,['pulse'],['Pulso'],['#8b5cf6'],_rp);
+    if(vGl.length)renderRepChart('rcGL',vGl,['glucose'],['Glucosa'],['#f59e0b'],_rp);
+    if(vWt.length)renderRepChart('rcWT',vWt,['weight'],['Peso'],['#00d4aa'],_rp);
+  },80)}
+}
+var _rCharts={};
+function renderRepChart(canvasId,data,keys,labels,colors,period){
+  var ctx=document.getElementById(canvasId);if(!ctx)return;
+  if(_rCharts[canvasId])_rCharts[canvasId].destroy();
+  var xl,ds,weekly=period&&period>=90;
+  if(weekly){
+    var days=lastNDays(period);
+    var weeks=[];
+    for(var wi=0;wi<days.length;wi+=7){var chunk=days.slice(wi,wi+7);weeks.push({lbl:fd(chunk[0]),days:chunk});}
+    xl=weeks.map(function(w){return w.lbl});
+    ds=keys.map(function(key,i){
+      return{label:labels[i],data:weeks.map(function(w){
+        var recs=data.filter(function(v){return w.days.indexOf(v.date)!==-1&&v[key]});
+        var vals=recs.map(function(v){return parseFloat(v[key])}).filter(function(x){return!isNaN(x)});
+        return vals.length?parseFloat((vals.reduce(function(s,v){return s+v},0)/vals.length).toFixed(1)):null;
+      }),borderColor:colors[i],backgroundColor:colors[i]+'22',borderWidth:2,pointBackgroundColor:colors[i],pointRadius:3,tension:.3,fill:i===0,spanGaps:true};
+    });
+  }else{
+    xl=data.map(function(v){return fd(v.date)+' '+v.time});
+    ds=keys.map(function(key,i){return{label:labels[i],data:data.map(function(v){return parseFloat(v[key])||null}),borderColor:colors[i],backgroundColor:colors[i]+'22',borderWidth:2,pointBackgroundColor:colors[i],pointRadius:3,tension:.3,fill:i===0}});
+  }
+  _rCharts[canvasId]=new Chart(ctx,{type:'line',data:{labels:xl,datasets:ds},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:keys.length>1,labels:{color:'#8ba3bf',font:{size:10},boxWidth:12}},tooltip:{backgroundColor:'#162a4a',titleColor:'#8ba3bf',bodyColor:'#e8f4f8'}},scales:{x:{ticks:{color:'#3a5a7a',font:{size:8},maxRotation:0,autoSkip:true,maxTicksLimit:weekly?12:8},grid:{color:'#1e3a5f'}},y:{ticks:{color:'#3a5a7a',font:{size:9}},grid:{color:'#1e3a5f'}}}}});
+}
+function renderSpecList(){
+  var specs=P.specialists||[];
+  if(!specs.length)return'<div style="font-size:12px;color:var(--dim);text-align:center;padding:8px">Sin especialistas guardados</div>';
+  return specs.map(function(s,i){return'<div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--bdr)22"><div><div style="font-size:13px;font-weight:600">'+esc(s.name)+'</div><div style="font-size:11px;color:var(--mut)">'+esc(s.specialty||'—')+' · 📱 '+(s.wa||'—')+'</div></div><button class="btn bg bs" onclick="openSpecialist('+i+')">✏️</button></div>'}).join('');
+}
+function openSpecialist(idx){
+  var s=idx!=null&&idx>=0?(P.specialists||[])[idx]:{name:'',specialty:'',wa:''};
+  om(modal('spec',idx!=null&&idx>=0?'Editar Especialista':'Nuevo Especialista',
+    fg('Nombre del especialista',inp('spn','text','Dr. García',s.name||''))
+    +fg('Especialidad',inp('spe','text','Cardiología',s.specialty||''))
+    +fg('WhatsApp (ej: 593987654321)',inp('spw','tel','593987654321',s.wa||''))
+    +(idx!=null&&idx>=0?'<button class="btn bd bf" style="margin-bottom:10px" onclick="delSpecialist('+idx+')">🗑 Eliminar</button>':'')
+    +'<button class="btn bp bf" onclick="saveSpecialist('+(idx!=null&&idx>=0?idx:'null')+')">💾 Guardar</button>'
+  ));
+}
+function saveSpecialist(idx){
+  var obj={name:gv('spn'),specialty:gv('spe'),wa:gv('spw')};
+  if(!obj.name)return;
+  var specs=[].concat(P.specialists||[]);
+  if(idx!=null)specs[idx]=obj;else specs.push(obj);
+  P.specialists=specs;S.set('mm4_p',P);syncToBackend();cm('spec');
+  var sl=g('splist');if(sl)sl.innerHTML=renderSpecList();
+}
+function delSpecialist(idx){
+  if(!confirm('¿Eliminar especialista?'))return;
+  P.specialists=(P.specialists||[]).filter(function(_,i){return i!==idx});
+  S.set('mm4_p',P);syncToBackend();cm('spec');
+  var sl=g('splist');if(sl)sl.innerHTML=renderSpecList();
+}
+function doWAReport(){
+  var specs=P.specialists||[];var curSpec=_rSp>=0?specs[_rSp]:null;
+  var phone=curSpec?curSpec.wa:(P.doctorWA||'');
+  if(!phone){alert('No hay WhatsApp configurado. Ve a Perfil → Especialistas o agrega uno en esta pantalla.');return}
+  var days=lastNDays(_rp),from=days[0],to=days[days.length-1];
+  var pv=[].concat(VITALS).filter(function(v){return v.date>=from&&v.date<=to}).sort(function(a,b){return(a.date+a.time).localeCompare(b.date+b.time)});
+  var ameds=MEDS.filter(function(m){return m.active});
+  var lastEx=[].concat(EXAMS).sort(function(a,b){return b.date.localeCompare(a.date)})[0]||null;
+  function st(arr,key){var v=arr.filter(function(x){return x[key]}).map(function(x){return parseFloat(x[key])}).filter(function(x){return!isNaN(x)});if(!v.length)return null;return{mn:Math.min.apply(null,v).toFixed(0),mx:Math.max.apply(null,v).toFixed(0),av:(v.reduce(function(s,x){return s+x},0)/v.length).toFixed(0)}}
+  var vBP=pv.filter(function(v){return v.bp_sys&&v.bp_dia}),vGl=pv.filter(function(v){return v.glucose}),vWt=pv.filter(function(v){return v.weight});
+  var stS=st(vBP,'bp_sys'),stD=st(vBP,'bp_dia'),stG=st(vGl,'glucose'),stW=st(vWt,'weight');
+  var adh=ameds.map(function(m){var sch=(m.times||['08:00']).length*_rp;var tk=DOSES.filter(function(d){return d.medId===m.id&&d.date>=from&&d.date<=to&&d.taken}).length;return{name:m.name,dose:m.dose,unit:m.unit,times:m.times,pct:sch>0?Math.min(100,Math.round(tk/sch*100)):null}});
+  var msg='🏥 *INFORME MÉDICO — MUNDIMED v2.0 ☁️*\n━━━━━━━━━━━━━━━━━━━━━━\n'
+    +'*Paciente:* '+P.name+' | '+P.age+' años | '+(P.sex==='M'?'M':'F')+'\n'
+    +'*Dx:* '+P.conditions+'\n'
+    +'*TFG:* '+(P.tfg||'—')+' mL/min · *Creatinina:* '+(P.creatinine||'—')+' mg/dL\n'
+    +'*Período:* '+fdl(from)+' al '+fdl(to)+'\n\n';
+  if(pv.length){
+    msg+='❤️ *SIGNOS VITALES ('+pv.length+' mediciones)*\n';
+    if(stS)msg+='• PA: '+stS.mn+'–'+stS.mx+' mmHg · prom *'+stS.av+'/'+(stD?stD.av:'—')+'*\n';
+    if(stG)msg+='• Glucosa: '+stG.mn+'–'+stG.mx+' mg/dL · prom *'+stG.av+'*\n';
+    if(stW)msg+='• Peso: '+stW.mn+'–'+stW.mx+' kg · prom *'+stW.av+'*\n';
+    msg+='\n*Últimas 5 mediciones:*\n';
+    pv.slice(-5).forEach(function(v){var l='• '+fd(v.date)+' '+v.time;if(v.bp_sys)l+=' · PA:'+v.bp_sys+'/'+v.bp_dia;if(v.glucose)l+=' · G:'+v.glucose;if(v.weight)l+=' · P:'+v.weight+'kg';msg+=l+'\n'});
+    msg+='\n';
+  }
+  if(lastEx){
+    msg+='🩺 *LABORATORIO ('+fdl(lastEx.date)+')*\n';
+    Object.entries(lastEx.parameters||{}).forEach(function(p){var ico=p[1].status==='alto'?'⬆️':p[1].status==='bajo'?'⬇️':'✅';msg+=ico+' '+p[0].replace(/_/g,' ')+': '+p[1].value+' '+(p[1].unit||'')+' (ref:'+(p[1].reference||'?')+')\n'});
+    msg+='\n';
+  }
+  msg+='💊 *MEDICAMENTOS ACTIVOS*\n';
+  ameds.forEach(function(m){msg+='• '+m.name+' '+m.dose+m.unit+' '+(m.times||[]).join('/')+'\n'});
+  msg+='\n';
+  if(adh.some(function(m){return m.pct!==null})){
+    msg+='📊 *ADHERENCIA*\n';
+    adh.forEach(function(m){if(m.pct!==null)msg+='• '+m.name+': *'+m.pct+'%*\n'});
+    msg+='\n';
+  }
+  msg+='📅 '+new Date().toLocaleDateString('es-EC')+' · MUNDIMED v2.0 ☁️';
+  window.open('https://wa.me/'+phone+'?text='+encodeURIComponent(msg),'_blank');
+}
+function doPrint(period){
+  const days=lastNDays(period),from=days[0],to=days[days.length-1];
+  const pm=MEALS.filter(function(m){return m.date>=from&&m.date<=to}),pe=EX.filter(function(e){return e.date>=from&&e.date<=to}),pv=VITALS.filter(function(v){return v.date>=from&&v.date<=to}),px=EXAMS.filter(function(e){return e.date>=from&&e.date<=to});
+  const avgCal=pm.length?(pm.reduce(function(s,m){return s+nval(m,'calories')},0)/period).toFixed(0):0;
+  const avgPr=pm.length?(pm.reduce(function(s,m){return s+nval(m,'protein')},0)/period).toFixed(1):0;
+  const avgNa=pm.length?(pm.reduce(function(s,m){return s+nval(m,'sodium')},0)/period).toFixed(0):0;
+  const vBP=pv.filter(function(v){return v.bp_sys});
+  const avgBP=vBP.length?(vBP.reduce(function(s,v){return s+parseFloat(v.bp_sys)},0)/vBP.length).toFixed(0)+'/'+(vBP.reduce(function(s,v){return s+parseFloat(v.bp_dia)},0)/vBP.length).toFixed(0):'—';
+  const vGl=pv.filter(function(v){return v.glucose});
+  const avgGl=vGl.length?(vGl.reduce(function(s,v){return s+parseFloat(v.glucose)},0)/vGl.length).toFixed(0):'—';
+  const totSt=pe.reduce(function(s,e){return s+(parseInt(e.steps)||0)},0);
+  const totMn=pe.reduce(function(s,e){return s+(parseInt(e.minutes)||0)},0);
+  const totCl=pe.reduce(function(s,e){return s+(e.caloriesBurned||0)},0);
+  const html='<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><title>Reporte MUNDIMED</title><style>body{font-family:Arial,sans-serif;padding:30px;color:#1a1a1a;max-width:800px;margin:0 auto;font-size:13px}h1{color:#0f4c81;border-bottom:3px solid #0f4c81;padding-bottom:10px}h2{color:#00a8a8;margin-top:20px;font-size:15px;border-left:4px solid #00a8a8;padding-left:8px}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:10px 0}.box{background:#f0f8ff;border:1px solid #b3d9f5;border-radius:8px;padding:10px;text-align:center}.val{font-size:20px;font-weight:bold;color:#0f4c81}.lbl{font-size:10px;color:#666}table{width:100%;border-collapse:collapse;margin-top:8px}th{background:#0f4c81;color:#fff;padding:7px;text-align:left;font-size:11px}td{padding:7px;border-bottom:1px solid #eee;font-size:11px}.ok{color:#059669;font-weight:bold}.warn{color:#d97706;font-weight:bold}.danger{color:#dc2626;font-weight:bold}.footer{margin-top:40px;font-size:10px;color:#999;border-top:1px solid #ddd;padding-top:10px}</style></head><body>'
+  +'<h1>📋 Reporte MUNDIMED</h1>'
+  +'<table style="margin-bottom:16px"><tr><td><strong>Paciente:</strong> '+esc(P.name)+'</td><td><strong>Edad:</strong> '+P.age+' años</td><td><strong>Sexo:</strong> '+(P.sex==='M'?'Masculino':'Femenino')+'</td></tr><tr><td colspan="3"><strong>Diagnósticos:</strong> '+esc(P.conditions)+'</td></tr><tr><td colspan="2"><strong>TFG:</strong> '+(P.tfg||'—')+' mL/min</td><td><strong>Creatinina:</strong> '+(P.creatinine||'—')+' mg/dL</td></tr><tr><td><strong>Período:</strong> '+fdl(from)+' al '+fdl(to)+'</td><td colspan="2"><strong>Generado:</strong> '+new Date().toLocaleString('es-EC')+'</td></tr></table>'
+  +'<h2>🥗 Nutrición Promedio Diaria</h2><div class="grid"><div class="box"><div class="val">'+avgCal+'</div><div class="lbl">kcal/día (meta:'+(P.calorieGoal||1800)+')</div></div><div class="box"><div class="val">'+avgPr+'g</div><div class="lbl">Proteína/día</div></div><div class="box"><div class="val">'+avgNa+'mg</div><div class="lbl">Sodio/día</div></div><div class="box"><div class="val">'+pm.length+'</div><div class="lbl">Comidas reg.</div></div></div>'
+  +'<h2>❤️ Signos Vitales</h2><div class="grid"><div class="box"><div class="val">'+avgBP+'</div><div class="lbl">PA mmHg</div></div><div class="box"><div class="val">'+avgGl+'</div><div class="lbl">Glucosa mg/dL</div></div><div class="box"><div class="val">'+pv.length+'</div><div class="lbl">Registros</div></div></div>'
+  +'<h2>🚶 Ejercicio</h2><div class="grid"><div class="box"><div class="val">'+totSt.toLocaleString()+'</div><div class="lbl">Pasos totales</div></div><div class="box"><div class="val">'+totMn+'</div><div class="lbl">Minutos activo</div></div><div class="box"><div class="val">'+totCl+'</div><div class="lbl">kcal quemadas</div></div></div>'
+  +'<h2>💊 Medicamentos</h2><table><tr><th>Medicamento</th><th>Dosis</th><th>Frecuencia</th><th>Indicación</th><th>Horarios</th></tr>'+MEDS.filter(function(m){return m.active}).map(function(m){return'<tr><td>'+esc(m.name)+'</td><td>'+m.dose+' '+m.unit+'</td><td>'+m.frequency+'</td><td>'+(m.indication||'—')+'</td><td>'+(m.times||[]).join(', ')+'</td></tr>'}).join('')+'</table>'
+  +(px.length?'<h2>🩺 Exámenes</h2>'+px.map(function(ex){return'<div style="margin-bottom:14px"><strong>'+(ETL[ex.type]||ex.type)+' — '+fdl(ex.date)+'</strong>'+(ex.lab?' ('+esc(ex.lab)+')':'')+'<table><tr><th>Parámetro</th><th>Valor</th><th>Referencia</th><th>Estado</th></tr>'+Object.entries(ex.parameters||{}).map(function(p){return'<tr><td>'+esc(p[0].replace(/_/g,' '))+'</td><td>'+p[1].value+' '+(p[1].unit||'')+'</td><td>'+(p[1].reference||'—')+'</td><td class="'+(p[1].status==='alto'?'danger':p[1].status==='bajo'?'warn':'ok')+'">'+(p[1].status||'').toUpperCase()+'</td></tr>'}).join('')+'</table></div>'}).join(''):'')
+  +'<div class="footer">Generado por MUNDIMED — Monitor de Salud Personal. No reemplaza consulta médica.</div></body></html>';
+  const w=window.open('','_blank');w.document.write(html);w.document.close();w.print();
+}
+
+
+
+// ===== SUEÑO =====
+var _sd=today();
+var _sp=7;
+var _sleepChart=null;
+function rSueno(c){
+  var todayRec=SLEEP.filter(function(s){return s.date===_sd})[0]||null;
+  var chartDays=lastNDays(_sp);
+  function minToH(m){if(!m)return'—';return Math.floor(m/60)+'h '+(m%60)+'min'}
+  function qualityStars(q){var s='';for(var i=1;i<=5;i++)s+='<span style="color:'+(i<=(q||0)?'var(--wrn)':'var(--bdr)')+'">★</span>';return s}
+  var alertBg='';
+  if(todayRec){
+    if(todayRec.total_minutes<360)alertBg='<div style="background:#7f1d1d30;border:1px solid var(--dng)40;border-radius:8px;padding:8px 12px;font-size:12px;color:var(--dng);margin-bottom:10px">⚠️ Sueño insuficiente: menos de 6 horas</div>';
+    else if(todayRec.deep_minutes&&todayRec.deep_minutes<60)alertBg='<div style="background:#78350f30;border:1px solid var(--wrn)40;border-radius:8px;padding:8px 12px;font-size:12px;color:var(--wrn);margin-bottom:10px">⚠️ Sueño profundo bajo: menos de 1 hora</div>';
+  }
+  var h='<div style="display:flex;gap:8px;align-items:center;margin-bottom:12px"><input type="date" value="'+_sd+'" onchange="_sd=this.value;render()" style="flex:1"/><button class="btn bp bs" onclick="openSueno()">+ Registrar</button></div>';
+  h+=alertBg;
+  if(todayRec){
+    var totalH=minToH(todayRec.total_minutes),deepH=minToH(todayRec.deep_minutes),lightH=minToH(todayRec.light_minutes);
+    var totalOk=todayRec.total_minutes>=420,deepOk=todayRec.deep_minutes>=90;
+    h+='<div class="card" style="background:linear-gradient(135deg,#0a102a,#0f1a40)">'
+      +'<div style="font-size:11px;color:var(--mut);margin-bottom:10px">🌙 '+fdl(_sd)+' · '+todayRec.start_time+' → '+todayRec.end_time+'</div>'
+      +'<div style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:10px">'
+      +'<div class="sb" style="background:rgba(0,0,0,.2)"><div class="sv" style="color:'+(totalOk?'var(--ok)':'var(--dng)')+'">'+totalH+'</div><div class="sl">Total</div><div style="font-size:9px;color:var(--mut);margin-top:2px">Rec: 7–8h</div></div>'
+      +'<div class="sb" style="background:rgba(0,0,0,.2)"><div class="sv" style="color:'+(deepOk?'var(--ok)':'var(--wrn)')+'">'+deepH+'</div><div class="sl">Profundo</div><div style="font-size:9px;color:var(--mut);margin-top:2px">Rec: 1.5–2h</div></div>'
+      +'<div class="sb" style="background:rgba(0,0,0,.2)"><div class="sv">'+lightH+'</div><div class="sl">Ligero</div></div>'
+      +'<div class="sb" style="background:rgba(0,0,0,.2)"><div style="font-size:18px;font-weight:700">'+(todayRec.interruptions||0)+'</div><div class="sl">Despertares</div></div>'
+      +'</div>'
+      +'<div style="display:flex;justify-content:space-between;align-items:center"><div style="font-size:13px">Calidad: '+qualityStars(todayRec.quality)+'</div><button onclick="delSueno(\''+todayRec.id+'\')" style="background:none;border:none;color:var(--dng);cursor:pointer;font-size:16px">🗑</button></div>'
+      +(todayRec.notes?'<div style="font-size:11px;color:var(--dim);margin-top:8px">'+esc(todayRec.notes)+'</div>':'')
+      +'</div>';
+  }else{
+    h+='<div class="empty"><div class="ei">🌙</div><div>Sin registro de sueño para esta fecha</div></div>';
+  }
+  var weekly=_sp>=90;
+  h+='<div class="card"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><div class="ctt" style="margin-bottom:0">📊 Evolución'+(weekly?' · prom. semanal':'')+'</div></div>'+periodBtns(_sp,'_sp')+'<div style="position:relative;height:160px"><canvas id="sleepChart"></canvas></div></div>';
+  c.innerHTML=h;
+  setTimeout(function(){
+    var ctx=g('sleepChart');if(!ctx)return;
+    if(_sleepChart){_sleepChart.destroy();_sleepChart=null;}
+    var labels,deepData,lightData,awakeData;
+    if(weekly){
+      var weeks=groupByWeek(chartDays,function(d){return null});
+      labels=[];deepData=[];lightData=[];awakeData=[];
+      for(var wi=0;wi<chartDays.length;wi+=7){
+        var chunk=chartDays.slice(wi,wi+7);
+        var recs=chunk.map(function(d){return SLEEP.find(function(s){return s.date===d})}).filter(Boolean);
+        labels.push(fd(chunk[0]));
+        var avgDeep=recs.length?recs.reduce(function(s,r){return s+(r.deep_minutes||0)},0)/recs.length/60:0;
+        var avgLight=recs.length?recs.reduce(function(s,r){return s+(r.light_minutes||0)},0)/recs.length/60:0;
+        var avgTotal=recs.length?recs.reduce(function(s,r){return s+(r.total_minutes||0)},0)/recs.length/60:0;
+        deepData.push(parseFloat(avgDeep.toFixed(2)));
+        lightData.push(parseFloat(avgLight.toFixed(2)));
+        awakeData.push(parseFloat(Math.max(0,avgTotal-avgDeep-avgLight).toFixed(2)));
+      }
+    }else{
+      labels=chartDays.map(function(d){return fd(d)});
+      deepData=chartDays.map(function(d){var r=SLEEP.find(function(s){return s.date===d});return r?parseFloat(((r.deep_minutes||0)/60).toFixed(2)):0});
+      lightData=chartDays.map(function(d){var r=SLEEP.find(function(s){return s.date===d});return r?parseFloat(((r.light_minutes||0)/60).toFixed(2)):0});
+      awakeData=chartDays.map(function(d){var r=SLEEP.find(function(s){return s.date===d});if(!r)return 0;var tot=(r.total_minutes||0)/60;var deep=(r.deep_minutes||0)/60;var light=(r.light_minutes||0)/60;return parseFloat(Math.max(0,tot-deep-light).toFixed(2))});
+    }
+    _sleepChart=new Chart(ctx,{type:'bar',data:{labels:labels,datasets:[{label:'Profundo',data:deepData,backgroundColor:'#8b5cf6cc'},{label:'Ligero',data:lightData,backgroundColor:'#00d4aa88'},{label:'Despierto',data:awakeData,backgroundColor:'#ef444455'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#8ba3bf',font:{size:9}}}},scales:{x:{stacked:true,ticks:{color:'#8ba3bf',font:{size:9},maxRotation:0,autoSkip:true,maxTicksLimit:weekly?12:10},grid:{color:'#1e3a5f'}},y:{stacked:true,ticks:{color:'#8ba3bf',font:{size:9},callback:function(v){return v+'h'}},grid:{color:'#1e3a5f'}}}}});
+  },80);
+}
+function delSueno(id){SLEEP=SLEEP.filter(function(s){return s.id!==id});saveAll();render()}
+function openSueno(){
+  om(modal('sueno','Registrar Sueño',
+    '<div class="g2">'+fg('Fecha',inp('sld','date','',_sd))+fg('Hora inicio',inp('slst','time','','22:00'))+'</div>'
+    +'<div class="g2">'+fg('Hora fin',inp('slet','time','','06:00'))+fg('Despertares',inp('sli','number','0',''))+'</div>'
+    +'<div class="g2">'+fg('Sueño profundo (min)',inp('sldeep','number','',''))+fg('Sueño ligero (min)',inp('sllight','number','',''))+'</div>'
+    +'<div class="fg"><label class="lb">Calidad (1-5 estrellas)</label><select id="slq"><option value="1">★ Muy malo</option><option value="2">★★ Malo</option><option value="3" selected>★★★ Regular</option><option value="4">★★★★ Bueno</option><option value="5">★★★★★ Excelente</option></select></div>'
+    +fg('Notas',inp('sln','text','Ej: apnea fuerte, me levanté 3 veces',''))
+    +'<button class="btn bp bf" style="margin-top:8px" onclick="saveSueno()">💾 Guardar</button>'));
+  setTimeout(function(){
+    var st=g('slst'),et=g('slet');
+    function calcTotal(){if(!st||!et)return;var s=st.value,e=et.value;if(!s||!e)return;var sm=parseInt(s.split(':')[0])*60+parseInt(s.split(':')[1]);var em=parseInt(e.split(':')[0])*60+parseInt(e.split(':')[1]);if(em<=sm)em+=1440;var tot=em-sm;var ld=g('sllight');if(ld&&!ld.value){var deep=parseInt(gv('sldeep'))||0;ld.value=Math.max(0,tot-deep-Math.round(tot*0.1));}};
+    if(st)st.addEventListener('change',calcTotal);
+    if(et)et.addEventListener('change',calcTotal);
+  },100);
+}
+function saveSueno(){
+  var date=gv('sld')||_sd,st=gv('slst'),et=gv('slet');
+  if(!st||!et){alert('Hora inicio y fin son obligatorias');return}
+  var sm=parseInt(st.split(':')[0])*60+parseInt(st.split(':')[1]);
+  var em=parseInt(et.split(':')[0])*60+parseInt(et.split(':')[1]);
+  if(em<=sm)em+=1440;
+  var total=em-sm;
+  var deep=parseInt(gv('sldeep'))||0;
+  var light=parseInt(gv('sllight'))||Math.round(total*0.6);
+  SLEEP=SLEEP.filter(function(s){return s.date!==date});
+  SLEEP.push({id:uid(),date:date,start_time:st,end_time:et,total_minutes:total,deep_minutes:deep,light_minutes:light,interruptions:parseInt(gv('sli'))||0,quality:parseInt(gv('slq'))||3,notes:gv('sln')});
+  saveAll();cm('sueno');render();
+}
+
+
+// ===== AGENTE IA =====
+var _chatHistory=[];
+var _chatThinking=false;
+var _chatWelcomed=false;
+
+function buildAgentSystem(){
+  var name=P.name||'el usuario';
+  var age=P.age?'Edad: '+P.age+' años.':'';
+  var dx=P.diagnosis?'Diagnósticos: '+P.diagnosis+'.':'';
+  var allg=P.allergies?'Alergias: '+P.allergies+'.':'';
+  var wt=P.weight?'Peso: '+P.weight+'kg.':'';
+  var ht=P.height?'Talla: '+P.height+'cm.':'';
+  var bl=P.bloodType?'Grupo sanguíneo: '+P.bloodType+'.':'';
+
+  var activeMeds=MEDS.filter(function(m){return m.active});
+  var medsStr=activeMeds.length
+    ?activeMeds.map(function(m){return m.name+' '+m.dose+' '+m.unit+' ('+m.frequency+')'}).join('; ')
+    :'ninguno registrado';
+
+  var sortedV=[].concat(VITALS).sort(function(a,b){return(b.date+b.time).localeCompare(a.date+a.time)});
+  var lastV=sortedV.slice(0,5);
+  var vitStr=lastV.length
+    ?lastV.map(function(v){return v.date+': PA '+(v.bp_sys||'—')+'/'+(v.bp_dia||'—')+', Pulso '+(v.pulse||'—')+'lpm, Gluc '+(v.glucose||'—')+', Peso '+(v.weight||'—')+'kg'}).join('\n')
+    :'sin registros';
+
+  var sortedEx=[].concat(EXAMS).sort(function(a,b){return b.date.localeCompare(a.date)});
+  var lastEx=sortedEx[0];
+  var examStr=lastEx
+    ?'Último examen: '+(ETL[lastEx.type]||lastEx.type)+' del '+fdl(lastEx.date)+'. Parámetros: '+Object.entries(lastEx.parameters||{}).map(function(e){return e[0].replace(/_/g,' ')+': '+e[1].value+' '+(e[1].unit||'')+(e[1].status&&e[1].status!=='normal'?' ['+e[1].status.toUpperCase()+']':'')}).join(', ')+'.'
+    :'sin exámenes registrados';
+
+  var specs=(P.specialists||[]).filter(function(s){return s.name});
+  var specStr=specs.length
+    ?specs.map(function(s){return s.specialty+': Dr. '+s.name+(s.phone?' ('+s.phone+')':'')}).join('; ')
+    :'sin especialistas registrados';
+
+  var last14=lastNDays(14);
+  var sleepLast14=last14.map(function(d){return SLEEP.find(function(s){return s.date===d})||null}).filter(Boolean);
+  var sleepStr='sin registros';
+  if(sleepLast14.length){
+    var avgTotal=(sleepLast14.reduce(function(s,r){return s+(r.total_minutes||0)},0)/sleepLast14.length/60).toFixed(1);
+    var avgDeep=(sleepLast14.reduce(function(s,r){return s+(r.deep_minutes||0)},0)/sleepLast14.length/60).toFixed(1);
+    var nightsUnder6=sleepLast14.filter(function(r){return(r.total_minutes||0)<360}).length;
+    sleepStr='Promedio total: '+avgTotal+'h · Promedio profundo: '+avgDeep+'h · Noches <6h: '+nightsUnder6+' de '+sleepLast14.length;
+  }
+  return 'Eres el asistente de salud personal de '+name+'. Eres experto en medicina interna, cardiología y nefrología. Respondes en español, en tono amigable pero preciso. NUNCA reemplazas la consulta médica — siempre recomiendas consultar al especialista para decisiones importantes.\n\n'
+    +'DATOS DEL PACIENTE:\n'
+    +'Nombre: '+name+'. '+age+' '+wt+' '+ht+' '+bl+'\n'
+    +(dx?dx+'\n':'')
+    +(allg?allg+'\n':'')
+    +'\nMEDICAMENTOS ACTIVOS:\n'+medsStr+'\n'
+    +'\nÚLTIMOS SIGNOS VITALES:\n'+vitStr+'\n'
+    +'\n'+examStr+'\n'
+    +'\nESPECIALISTAS:\n'+specStr+'\n'
+    +'\nSUEÑO ÚLTIMAS 2 SEMANAS:\n'+sleepStr+'\n'
+    +'NOTA CLÍNICA: El paciente tiene apnea del sueño diagnosticada, relacionada con hipertensión, resistencia a insulina y fatiga. Considerar esto al dar recomendaciones de ejercicio, alimentación y horarios.\n'
+    +'\nResponde de forma concisa. Si el usuario pregunta sobre un valor específico de sus últimos registros, puedes responder directamente con ese dato.';
+}
+
+function sendWelcomeMessage(){
+  if(_chatWelcomed)return;
+  _chatWelcomed=true;
+  var name=(P.name||'').split(' ')[0]||'';
+  var sortedV=[].concat(VITALS).sort(function(a,b){return(b.date+b.time).localeCompare(a.date+a.time)});
+  var lv=sortedV[0];
+  var dato='';
+  var lvSys=lv&&(lv.bp_sys||lv.systolic);
+  var lvDia=lv&&(lv.bp_dia||lv.diastolic);
+  if(lv && lvSys && lvDia){
+    dato=' Tu última presión arterial registrada el '+fdl(lv.date)+' fue '+lvSys+'/'+lvDia+' mmHg'+(lv.glucose?' y tu glucosa '+lv.glucose+' mg/dL':'')+'.';
+  } else if(lv && lv.glucose){
+    dato=' Tu último registro del '+fdl(lv.date)+' mostró glucosa '+lv.glucose+' mg/dL.';
+  }
+  var txt='Hola'+(name?' '+name:'')+', soy tu asistente de salud MUNDIMED.'+dato+' ¿En qué puedo ayudarte hoy?';
+  _chatHistory.push({role:'assistant',content:txt});
+  refreshChatArea();
+}
+
+function rAgent(c){
+  c.innerHTML='<div style="display:flex;flex-direction:column;height:calc(100vh - 140px)">'
+    +'<div id="chatArea" style="flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:10px;padding-bottom:8px"></div>'
+    +'<div style="padding-top:8px;border-top:1px solid var(--bdr)">'
+    +'<div style="display:flex;gap:8px;align-items:flex-end">'
+    +'<textarea id="chatInput" rows="2" placeholder="Escribe tu mensaje..." style="flex:1;resize:none;font-size:14px;padding:10px 12px;border-radius:10px" onkeydown="if(event.key===\'Enter\'&&!event.shiftKey){event.preventDefault();sendAgentMsg()}"></textarea>'
+    +'<button class="btn bp" onclick="sendAgentMsg()" style="height:44px;padding:0 16px;white-space:nowrap">Enviar</button>'
+    +'</div>'
+    +'<button class="btn bg" onclick="newConversation()" style="width:100%;margin-top:8px;font-size:12px">Nueva conversación</button>'
+    +'</div>'
+    +'</div>';
+  refreshChatArea();
+  if(!_chatWelcomed)sendWelcomeMessage();
+  else scrollChatToBottom();
+}
+
+function refreshChatArea(){
+  var area=g('chatArea');
+  if(!area)return;
+  var html='';
+  _chatHistory.forEach(function(m){
+    if(m.role==='user'){
+      html+='<div style="display:flex;justify-content:flex-end"><div style="background:var(--pri);color:#0a1628;border-radius:14px 14px 2px 14px;padding:10px 14px;max-width:80%;font-size:14px;line-height:1.5">'+esc(m.content)+'</div></div>';
+    } else {
+      html+='<div style="display:flex;justify-content:flex-start"><div style="background:var(--card);border:1px solid var(--bdr);border-radius:14px 14px 14px 2px;padding:10px 14px;max-width:88%;font-size:14px;line-height:1.6;white-space:pre-wrap">'+esc(m.content)+'</div></div>';
+    }
+  });
+  if(_chatThinking){
+    html+='<div style="display:flex;justify-content:flex-start"><div style="background:var(--card);border:1px solid var(--bdr);border-radius:14px;padding:10px 14px;color:var(--mut);font-size:13px">pensando...</div></div>';
+  }
+  area.innerHTML=html;
+  scrollChatToBottom();
+}
+
+function scrollChatToBottom(){
+  var area=g('chatArea');
+  if(area)area.scrollTop=area.scrollHeight;
+}
+
+async function sendAgentMsg(){
+  var inp=g('chatInput');
+  if(!inp)return;
+  var txt=(inp.value||'').trim();
+  if(!txt||_chatThinking)return;
+  inp.value='';
+  _chatHistory.push({role:'user',content:txt});
+  _chatThinking=true;
+  refreshChatArea();
+  try{
+    var msgs=_chatHistory.map(function(m){return{role:m.role,content:m.content}});
+    var r=await fetch(BACKEND+'/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({system:buildAgentSystem(),messages:msgs,max_tokens:1000})});
+    if(!r.ok){var err=await r.json();throw new Error(err.error||'Error '+r.status)}
+    var d=await r.json();
+    if(d.error)throw new Error(d.error);
+    _chatHistory.push({role:'assistant',content:d.text||''});
+  }catch(err){
+    _chatHistory.push({role:'assistant',content:'Lo siento, ocurrió un error: '+err.message});
+  }
+  _chatThinking=false;
+  refreshChatArea();
+}
+
+function newConversation(){
+  _chatHistory=[];
+  _chatWelcomed=false;
+  var area=g('chatArea');
+  if(area)area.innerHTML='';
+  sendWelcomeMessage();
+}
+
+
+// ===== SERVICE WORKER REGISTRATION =====
+function registerSW() {
+  if (!('serviceWorker' in navigator)) {
+    console.log('Service Worker not supported');
+    return;
+  }
+  navigator.serviceWorker.register('/sw.js').then(function(reg) {
+    console.log('SW registered:', reg.scope);
+    // Listen for messages from SW
+    navigator.serviceWorker.addEventListener('message', function(e) {
+      if (e.data.type === 'CONFIRM_DOSE') {
+        confirmAlarmDose(e.data.medId, e.data.time);
+      } else if (e.data.type === 'SNOOZE_DOSE') {
+        // SW handles snooze internally, just update UI
+        if (TAB === 'meds') render();
+      }
+    });
+  }).catch(function(err) {
+    console.warn('SW registration failed:', err);
+  });
+}
+
+function confirmAlarmDose(medId, time) {
+  var t = today();
+  var idx = DOSES.findIndex(function(d) {
+    return d.medId === medId && d.time === time && d.date === t;
+  });
+  if (idx < 0) {
+    DOSES.push({ id: uid(), medId: medId, date: t, time: time, taken: true });
+    saveAll();
+  }
+  if (TAB === 'meds') render();
+  // Reschedule alarms
+  scheduleAlarmsInSW();
+}
+
+function scheduleAlarmsInSW() {
+  if (!('serviceWorker' in navigator) || !navigator.serviceWorker.controller) return;
+  
+  // Request notification permission first
+  if ('Notification' in window && Notification.permission === 'default') {
+    Notification.requestPermission().then(function(perm) {
+      if (perm === 'granted') doScheduleAlarms();
+    });
+  } else if (Notification.permission === 'granted') {
+    doScheduleAlarms();
+  }
+}
+
+function doScheduleAlarms() {
+  var t = today();
+  var takenDoses = DOSES.filter(function(d) { return d.date === t; });
+  var alarms = [];
+  
+  MEDS.filter(function(m) { return m.active; }).forEach(function(med) {
+    (med.times || ['08:00']).forEach(function(time) {
+      var taken = takenDoses.some(function(d) {
+        return d.medId === med.id && d.time === time;
+      });
+      if (!taken) {
+        alarms.push({
+          medId: med.id,
+          medName: med.name,
+          dose: med.dose,
+          unit: med.unit,
+          time: time,
+          date: t,
+          taken: false
+        });
+      }
+    });
+  });
+  
+  navigator.serviceWorker.controller.postMessage({
+    type: 'SCHEDULE_ALARMS',
+    alarms: alarms
+  });
+  
+  console.log('Scheduled', alarms.length, 'alarms in SW');
+}
+
+// ===== SISTEMA DE ALERTAS DE MEDICAMENTOS =====
+var _alarmActive=false;
+var _alarmSound=null;
+var _alarmInterval=null;
+
+function initAlarms(){
+  // Register service worker for background notifications
+  registerSW();
+  
+  // Request notification permission
+  if('Notification' in window && Notification.permission==='default'){
+    Notification.requestPermission().then(function(perm){
+      if(perm==='granted'){
+        setTimeout(scheduleAlarmsInSW, 2000); // wait for SW to be ready
+      }
+    });
+  } else if(Notification.permission==='granted'){
+    setTimeout(scheduleAlarmsInSW, 2000);
+  }
+  
+  // Fallback: also check every 30 seconds while app is open
+  if(_alarmInterval)clearInterval(_alarmInterval);
+  _alarmInterval=setInterval(checkMedAlarms,30000);
+  checkMedAlarms();
+}
+
+function checkMedAlarms(){
+  if(_alarmActive)return; // don't stack alarms
+  const now=new Date();
+  const hh=String(now.getHours()).padStart(2,'0');
+  const mm=String(now.getMinutes()).padStart(2,'0');
+  const timeNow=hh+':'+mm;
+  const t=today();
+  const takenDoses=DOSES.filter(function(d){return d.date===t});
+  const activeMeds=MEDS.filter(function(m){return m.active});
+
+  for(var i=0;i<activeMeds.length;i++){
+    var med=activeMeds[i];
+    var times=med.times||['08:00'];
+    for(var j=0;j<times.length;j++){
+      var medTime=times[j];
+      // Check if within 1 minute window
+      var alreadyTaken=takenDoses.some(function(d){return d.medId===med.id&&d.time===medTime});
+      if(!alreadyTaken && timeNow===medTime){
+        triggerAlarm(med,medTime);
+        return;
+      }
+    }
+  }
+}
+
+function playAlarmSound(){
+  try{
+    var ctx=new(window.AudioContext||window.webkitAudioContext)();
+    function beep(freq,start,dur,vol){
+      var o=ctx.createOscillator();
+      var g=ctx.createGain();
+      o.connect(g);g.connect(ctx.destination);
+      o.frequency.value=freq;
+      o.type='sine';
+      g.gain.setValueAtTime(0,ctx.currentTime+start);
+      g.gain.linearRampToValueAtTime(vol,ctx.currentTime+start+0.05);
+      g.gain.linearRampToValueAtTime(0,ctx.currentTime+start+dur);
+      o.start(ctx.currentTime+start);
+      o.stop(ctx.currentTime+start+dur+0.1);
+    }
+    // Medical alert sound: 3 ascending beeps
+    beep(880,0,0.2,0.6);
+    beep(1100,0.3,0.2,0.6);
+    beep(1320,0.6,0.4,0.7);
+    beep(880,1.2,0.2,0.5);
+    beep(1100,1.5,0.2,0.5);
+    beep(1320,1.8,0.4,0.6);
+    return ctx;
+  }catch(e){console.warn('Audio error:',e);return null}
+}
+
+var _currentAlarmMedId=null;
+var _currentAlarmTime=null;
+var _soundInterval=null;
+function triggerAlarm(med,time){
+  if(_alarmActive)return;
+  _alarmActive=true;
+  _currentAlarmMedId=med.id;
+  _currentAlarmTime=time;
+
+  // Add CSS
+  if(!document.getElementById('alarm_style')){
+    var st=document.createElement('style');
+    st.id='alarm_style';
+    st.textContent='@keyframes alarmPulse{0%,100%{background:rgba(0,0,0,.88)}50%{background:rgba(239,68,68,.3)}}@keyframes iconBounce{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}';
+    document.head.appendChild(st);
+  }
+
+  // Build overlay with DOM elements (avoids quote issues)
+  var overlay=document.createElement('div');
+  overlay.id='alarm_overlay';
+  overlay.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.88);z-index:99999;display:flex;align-items:center;justify-content:center;padding:20px;animation:alarmPulse 1.2s infinite';
+
+  var box=document.createElement('div');
+  box.style.cssText='background:linear-gradient(135deg,#0f2040,#162a4a);border:3px solid #ef4444;border-radius:20px;padding:28px 20px;max-width:340px;width:100%;text-align:center;box-shadow:0 0 60px rgba(239,68,68,.5)';
+
+  var icon=document.createElement('div');
+  icon.style.cssText='font-size:60px;animation:iconBounce 1s infinite;margin-bottom:12px';
+  icon.textContent='💊';
+  box.appendChild(icon);
+
+  var lbl=document.createElement('div');
+  lbl.style.cssText='font-size:13px;color:#ef4444;font-weight:700;letter-spacing:1.5px;margin-bottom:10px';
+  lbl.textContent='⏰ HORA DEL MEDICAMENTO';
+  box.appendChild(lbl);
+
+  var nm=document.createElement('div');
+  nm.style.cssText='font-size:24px;font-weight:700;color:#e8f4f8;margin-bottom:6px';
+  nm.textContent=med.name;
+  box.appendChild(nm);
+
+  var ds=document.createElement('div');
+  ds.style.cssText='font-size:17px;color:#00d4aa;font-weight:600;margin-bottom:4px';
+  ds.textContent=med.dose+' '+med.unit;
+  box.appendChild(ds);
+
+  if(med.indication){var ind=document.createElement('div');ind.style.cssText='font-size:12px;color:#8ba3bf;margin-bottom:6px';ind.textContent=med.indication;box.appendChild(ind)}
+
+  var tm=document.createElement('div');
+  tm.style.cssText='font-size:28px;font-weight:700;color:#f59e0b;margin:14px 0';
+  tm.textContent='🕐 '+time;
+  box.appendChild(tm);
+
+  var btnC=document.createElement('button');
+  btnC.style.cssText='background:#10b981;color:#fff;border:none;border-radius:12px;padding:18px;font-size:16px;font-weight:700;cursor:pointer;width:100%;margin-top:4px;font-family:DM Sans,sans-serif';
+  btnC.textContent='✅  Ya tomé el medicamento';
+  btnC.addEventListener('click',function(){confirmAlarm(_currentAlarmMedId,_currentAlarmTime)});
+  box.appendChild(btnC);
+
+  var btnS=document.createElement('button');
+  btnS.style.cssText='background:transparent;color:#8ba3bf;border:1px solid #1e3a5f;border-radius:12px;padding:12px;font-size:13px;cursor:pointer;width:100%;margin-top:10px;font-family:DM Sans,sans-serif';
+  btnS.textContent='⏱  Recordarme en 5 minutos';
+  btnS.addEventListener('click',function(){snoozeAlarm()});
+  box.appendChild(btnS);
+
+  overlay.appendChild(box);
+  document.body.appendChild(overlay);
+
+  // Sound
+  playAlarmSound();
+  _soundInterval=setInterval(function(){if(!_alarmActive){clearInterval(_soundInterval);return}playAlarmSound()},4000);
+
+  // Browser notification
+  if('Notification' in window && Notification.permission==='granted'){
+    try{new Notification('💊 MUNDIMED',{body:'Tomar: '+med.name+' '+med.dose+' '+med.unit+' a las '+time,requireInteraction:true})}catch(e){}
+  }
+}
+
+function confirmAlarm(medId,time){
+  // Mark as taken
+  const t=today();
+  const idx=DOSES.findIndex(function(d){return d.medId===medId&&d.time===time&&d.date===t});
+  if(idx<0)DOSES.push({id:uid(),medId:medId,date:t,time:time,taken:true});
+  saveAll();
+  dismissAlarm();
+  if(TAB==='meds')render();
+}
+
+function snoozeAlarm(){
+  var medId=_currentAlarmMedId;
+  var time=_currentAlarmTime;
+  dismissAlarm();
+  setTimeout(function(){
+    if(medId&&time){
+      var medObj=MEDS.find(function(m){return m.id===medId});
+      if(medObj){
+        var taken=DOSES.some(function(d){return d.medId===medId&&d.time===time&&d.date===today()});
+        if(!taken)triggerAlarm(medObj,time);
+      }
+    }
+  },5*60*1000);
+}
+
+function dismissAlarm(){
+  _alarmActive=false;
+  if(_soundInterval){clearInterval(_soundInterval);_soundInterval=null}
+  var overlay=document.getElementById('alarm_overlay');
+  if(overlay)overlay.remove();
+}
+// INIT
+navRender();qsRender();render();
+initAlarms();
+loadFromBackend().then(function(){navRender();qsRender();render()}).catch(function(){});
+
+</script>
+</body>
+</html>

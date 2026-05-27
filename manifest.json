@@ -1,0 +1,18 @@
+{
+  "name": "MUNDIMED — Monitor de Salud",
+  "short_name": "MUNDIMED",
+  "description": "Monitor personal de salud: medicamentos, dieta, exámenes y vitales",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a1628",
+  "theme_color": "#0f2040",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjEwMCIgZmlsbD0iIzBmMjA0MCIvPjxyZWN0IHg9IjIyMCIgeT0iMTMwIiB3aWR0aD0iNzIiIGhlaWdodD0iMjUyIiByeD0iMjAiIGZpbGw9IiMwMGQ0YWEiLz48cmVjdCB4PSIxMzAiIHk9IjIyMCIgd2lkdGg9IjI1MiIgaGVpZ2h0PSI3MiIgcng9IjIwIiBmaWxsPSIjMDBkNGFhIi8+PHBvbHlsaW5lIHBvaW50cz0iMTAwLDM4MCAxNjAsMzgwIDE4NSwzMjAgMjE1LDQxMCAyNDAsMzQwIDI2NSwzOTAgMjk1LDM4MCA0MTIsMzgwIiBzdHJva2U9IiNmZjZiMzUiIHN0cm9rZS13aWR0aD0iMTgiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg==",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
