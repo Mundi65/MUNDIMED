@@ -250,7 +250,7 @@ function rPerfil(c){
   const bmi=P.weight&&P.height?(parseFloat(P.weight)/(Math.pow(parseFloat(P.height)/100,2))).toFixed(1):null;
   const bc=!bmi?'var(--mut)':parseFloat(bmi)>=30?'var(--dng)':parseFloat(bmi)>=25?'var(--wrn)':'var(--ok)';
   if(!P.name){
-    c.innerHTML='<div class="al ai">👋 Bienvenido a MUNDIMED. Completa tu perfil para comenzar.</div><div class="card" style="border-color:rgba(0,212,170,.3)"><div class="ctt">¿Ya tienes datos en otro dispositivo?</div><div style="font-size:12px;color:var(--mut);margin-bottom:10px">Importa tu archivo JSON para continuar.</div><button class="btn bp bf" onclick="g("impf").click()">📥 Importar datos</button><input type="file" id="impf" accept=".json" onchange="importData(event)" style="display:none"/></div>'+perfilForm();
+    c.innerHTML='<div class="al ai">👋 Bienvenido a MUNDIMED. Completa tu perfil para comenzar.</div><div class="card" style="border-color:rgba(0,212,170,.3)"><div class="ctt">¿Ya tienes datos en otro dispositivo?</div><div style="font-size:12px;color:var(--mut);margin-bottom:10px">Importa tu archivo JSON para continuar.</div><button class="btn bp bf" onclick="g('impf').click()">📥 Importar datos</button><input type="file" id="impf" accept=".json" onchange="importData(event)" style="display:none"/></div>'+perfilForm();
     return;
   }
   c.innerHTML='<div class="card" style="background:linear-gradient(135deg,#0a2040,#102050)"><div style="display:flex;gap:12px;align-items:center;margin-bottom:12px"><div style="width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--pri),#0080ff);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0">'+(P.sex==='F'?'👩':'👨')+'</div><div><div style="font-size:17px;font-weight:700">'+esc(P.name)+'</div><div style="font-size:12px;color:var(--mut)">'+P.age+' años · '+(P.sex==='M'?'Masculino':'Femenino')+' · '+P.weight+'kg · '+P.height+'cm</div>'+(bmi?'<span class="pill" style="color:'+bc+';border-color:'+bc+'40;background:'+bc+'18;margin-top:4px">IMC: '+bmi+'</span>':'')+'</div></div><div style="background:rgba(255,107,53,.08);border:1px solid rgba(255,107,53,.2);border-radius:8px;padding:10px;font-size:12px"><span style="color:var(--wrn);font-weight:700">⚕️ </span>'+esc(P.conditions||'Sin condiciones registradas')+'</div></div>'
@@ -258,7 +258,7 @@ function rPerfil(c){
   +'<div class="card"><div class="ctt">🎯 Límites Dietéticos</div>'+pbar('Calorías',0,parseFloat(P.calorieGoal)||1800,'kcal','var(--acc)')+pbar('Proteína',0,Math.round((parseFloat(P.proteinLimit)||0.6)*(parseFloat(P.weight)||70)),'g','var(--pri)')+pbar('Sodio',0,parseFloat(P.sodiumLimit)||2000,'mg','var(--wrn)')+pbar('Potasio',0,parseFloat(P.potassiumLimit)||2500,'mg','var(--pur)')+pbar('Fósforo',0,parseFloat(P.phosphorusLimit)||800,'mg','var(--pnk)')+'<div style="font-size:11px;color:var(--mut);text-align:center;margin-top:6px">Registra comidas en Dieta para ver el avance</div></div>'
   +'<div class="card"><div class="ctt">📱 Médico</div><div style="font-size:13px"><span style="color:var(--mut)">Médico: </span>'+esc(P.doctorName||'—')+' <span style="color:var(--dim)">· WA: '+(P.doctorWA||'no configurado')+'</span></div></div>'
   +'<button class="btn bp bf" onclick="openPEdit()">✏️ Editar Perfil</button>'
-  +'<div class="card" style="margin-top:10px;border-color:rgba(0,212,170,.25)"><div class="ctt">🔄 Sincronizar</div><div style="font-size:12px;color:var(--mut);margin-bottom:12px">Exporta tus datos y compártelos para usarlos en otro dispositivo.</div><div class="g2" style="margin-bottom:8px"><button class="btn bp" onclick="exportData()">📤 Exportar</button><button class="btn bg" onclick="g("impf2").click()">📥 Importar</button></div><input type="file" id="impf2" accept=".json" onchange="importData(event)" style="display:none"/></div>';
+  +'<div class="card" style="margin-top:10px;border-color:rgba(0,212,170,.25)"><div class="ctt">🔄 Sincronizar</div><div style="font-size:12px;color:var(--mut);margin-bottom:12px">Exporta tus datos y compártelos para usarlos en otro dispositivo.</div><div class="g2" style="margin-bottom:8px"><button class="btn bp" onclick="exportData()">📤 Exportar</button><button class="btn bg" onclick="g('impf2').click()">📥 Importar</button></div><input type="file" id="impf2" accept=".json" onchange="importData(event)" style="display:none"/></div>';
 }
 function perfilForm(){
   return '<div class="card"><div class="ctt">👤 Datos Personales</div>'+fg('Nombre',inp('pn','text','Tu nombre',P.name))+'<div class="g2">'+fg('Edad',inp('pa','number','Años',P.age))+fg('Sexo',sel('ps',[['','Seleccionar'],['M','Masculino'],['F','Femenino']],P.sex))+fg('Peso (kg)',inp('pw','number','70',P.weight))+fg('Talla (cm)',inp('ph','number','170',P.height))+'</div></div>'
@@ -283,7 +283,7 @@ function rMeds(c){
     h+='<div class="card"><div class="ctt">💊 Toma de Hoy</div>';
     amSorted.forEach(function(m){
       h+='<div style="margin-bottom:12px"><div style="font-size:13px;font-weight:600;margin-bottom:6px">'+esc(m.name)+' <span style="font-size:11px;color:var(--mut)">'+m.dose+' '+m.unit+'</span></div><div style="display:flex;gap:8px;flex-wrap:wrap">';
-      ([].concat(m.times||['08:00']).sort()).forEach(function(ti){const tk=td.some(function(d){return d.medId===m.id&&d.time===ti});h+='<button class="dc'+(tk?' tk':'')+'" onclick="togDose(\''+m.id+'","'+ti+'\')">'+(tk?'✅':'⬜')+' '+ti+'</button>'});
+      ([].concat(m.times||['08:00']).sort()).forEach(function(ti){const tk=td.some(function(d){return d.medId===m.id&&d.time===ti});h+='<button class="dc'+(tk?' tk':'')+'" onclick="togDose(\''+m.id+'\',\''+ti+'\')">'+(tk?'✅':'⬜')+' '+ti+'</button>'});
       h+='</div></div>';
     });
     h+='</div>';
@@ -357,7 +357,7 @@ function openMeal(){
     +'<div class="fg"><label class="lb">Foto de la comida (opcional)</label>'
     +'<input type="file" id="mlimg" accept="image/*" capture="environment" style="display:none" onchange="previewMealImg(this)"/>'
     +'<div style="display:flex;gap:8px;align-items:center">'
-    +'<button onclick="g("mlimg").click()" class="btn bg" style="flex:1;font-size:12px">📷 Seleccionar foto</button>'
+    +'<button onclick="g('mlimg').click()" class="btn bg" style="flex:1;font-size:12px">📷 Seleccionar foto</button>'
     +'<button id="mlanalyzebtn" onclick="analyzeMealPhoto()" class="btn bp" style="flex:1;font-size:12px;display:none">🔍 Analizar foto</button>'
     +'</div>'
     +'<div id="mlpreview" style="margin-top:8px"></div>'
@@ -538,7 +538,7 @@ function rTCIntro(c){
     +'<div class="sb" style="background:transparent"><div class="sv" style="color:var(--acc)">30</div><div class="sl">minutos</div></div>'
     +'<div class="sb" style="background:transparent"><div class="sv" style="color:var(--wrn)">~'+kcal+'</div><div class="sl">kcal</div></div>'
     +'</div></div>'
-    +'<button class="btn bp bf" style="font-size:14px;padding:14px" onclick="_tcStep="grid";render()">💪 Entendido — Iniciar Sesión</button>';
+    +'<button class="btn bp bf" style="font-size:14px;padding:14px" onclick="_tcStep='grid';render()">💪 Entendido — Iniciar Sesión</button>';
   c.innerHTML=h;
 }
 function rTCGrid(c){
@@ -555,11 +555,11 @@ function rTCGrid(c){
     +'<div class="tc-grid">';
   TC.forEach(function(ex){
     var isDone=_tcCompleted.indexOf(ex.n)>=0;
-    h+='<div onclick="_tcActiveEx='+ex.n+';_tcStep="detail";render()" style="background:var(--card);border:1.5px solid '+(isDone?'var(--ok)':'var(--bdr)')+';border-radius:12px;overflow:hidden;cursor:pointer;position:relative">'
+    h+='<div onclick="_tcActiveEx='+ex.n+';_tcStep='detail';render()" style="background:var(--card);border:1.5px solid '+(isDone?'var(--ok)':'var(--bdr)')+';border-radius:12px;overflow:hidden;cursor:pointer;position:relative">'
       +(isDone
         ?'<div style="position:absolute;top:6px;right:6px;z-index:2;background:var(--ok);color:#fff;border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700">✓</div>'
         :'<div style="position:absolute;top:6px;left:8px;z-index:2;background:#0a162890;color:var(--mut);border-radius:10px;padding:1px 7px;font-size:10px;font-weight:600">'+ex.n+'</div>')
-      +'<img src="/taichi/ejercicio_'+ex.n+'.png" style="width:100%;aspect-ratio:1;object-fit:cover;display:block" onerror="this.style.cssText="width:100%;min-height:90px;background:#0a2040;display:block"">'
+      +'<img src="/taichi/ejercicio_'+ex.n+'.png" style="width:100%;aspect-ratio:1;object-fit:cover;display:block" onerror="this.style.cssText='width:100%;min-height:90px;background:#0a2040;display:block'">'
       +'<div style="padding:8px 8px 10px">'
       +'<div style="font-size:11px;font-weight:700;line-height:1.3;margin-bottom:3px;color:'+(isDone?'var(--ok)':'var(--txt)')+'">'+ex.name+'</div>'
       +'<div style="font-size:9px;color:var(--mut)">'+ex.reps+'</div>'
@@ -578,13 +578,13 @@ function rTCDetail(c){
   if(!ex){_tcStep='grid';render();return}
   var isDone=_tcCompleted.indexOf(ex.n)>=0;
   var h='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">'
-    +'<button class="btn bg bs" onclick="_tcStep="grid";render()">← Volver</button>'
+    +'<button class="btn bg bs" onclick="_tcStep='grid';render()">← Volver</button>'
     +'<div style="font-size:11px;color:var(--mut)">Ejercicio '+ex.n+' de 16</div>'
     +'<div style="display:flex;gap:6px">'
     +(ex.n>1?'<button class="btn bg bs" onclick="_tcActiveEx='+(ex.n-1)+';render()" style="padding:5px 10px">‹</button>':'<div style="width:36px"></div>')
     +(ex.n<16?'<button class="btn bg bs" onclick="_tcActiveEx='+(ex.n+1)+';render()" style="padding:5px 10px">›</button>':'<div style="width:36px"></div>')
     +'</div></div>'
-    +'<img src="/taichi/ejercicio_'+ex.n+'.png" style="width:100%;max-height:260px;object-fit:cover;border-radius:12px;display:block;margin-bottom:14px" onerror="this.style.display="none"">'
+    +'<img src="/taichi/ejercicio_'+ex.n+'.png" style="width:100%;max-height:260px;object-fit:cover;border-radius:12px;display:block;margin-bottom:14px" onerror="this.style.display='none'">'
     +'<div style="margin-bottom:12px">'
     +'<div style="font-size:20px;font-weight:700;line-height:1.2">'+esc(ex.name)+'</div>'
     +'<div style="font-size:12px;color:var(--mut);margin-top:3px;font-style:italic">'+esc(ex.en)+'</div>'
@@ -649,7 +649,7 @@ function rTCDone(c){
     +'🕐 Descansa 10 min antes de tu próxima actividad<br>'
     +'📅 Próxima sesión: mañana o pasado mañana'
     +'</div>'
-    +'<button class="btn bp bf" style="font-size:14px;padding:13px;margin-bottom:8px" onclick="_tcView=false;_ed=today();go("ejercicio")">🏃 Ver en Ejercicio</button>'
+    +'<button class="btn bp bf" style="font-size:14px;padding:13px;margin-bottom:8px" onclick="_tcView=false;_ed=today();go('ejercicio')">🏃 Ver en Ejercicio</button>'
     +'<button class="btn bf bg" style="font-size:13px;padding:10px" onclick="_tcView=false;render()">← Cerrar</button>';
   c.innerHTML=h;
 }
@@ -773,7 +773,7 @@ async function aiInterp(examId){
 var _ep={},_imgs=[],_pdfB64=null,_fmode='img';
 function openExam(){
   _ep={};_imgs=[];_pdfB64=null;_fmode='img';
-  om(modal('exam','Nuevo Examen','<div class="tb"><button class="tbb on" id="m_img" onclick="setFMode("img")">📷 Imágenes</button><button class="tbb" id="m_pdf" onclick="setFMode("pdf")">📄 PDF</button></div><div class="al ai" style="margin-bottom:10px" id="exam_tip">Sube fotos o capturas del resultado. Puedes seleccionar varias.</div><div style="background:var(--card);border:2px dashed var(--bdr);border-radius:10px;padding:20px;text-align:center;margin-bottom:10px" onclick="trigFI()"><input type="file" id="ef_img" accept="image/*" multiple onchange="handleImgs(event)" style="display:none"/><input type="file" id="ef_pdf" accept="application/pdf" onchange="handlePDF(event)" style="display:none"/><div id="efs"><div style="font-size:32px;margin-bottom:8px">📷</div><div style="font-size:13px;color:var(--mut);margin-bottom:10px">Toca para seleccionar</div><button class="btn bp" onclick="event.stopPropagation();trigFI()">Seleccionar archivo</button></div></div><div id="ipreview" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px"></div><button class="btn bf" id="ai_ex_btn" onclick="runExamAI()" style="display:none;background:var(--pur);color:#fff;margin-bottom:10px;font-size:14px;padding:12px">🤖 Extraer parámetros con IA</button><div id="ai_ex_prog" class="al aw" style="display:none">⏳ Analizando...</div><div id="es_mn" style="display:none"><div class="g2">'+fg('Tipo',sel('et3',Object.entries(ETL).map(function(e){return[e[0],e[1]]}),'sangre'))+fg('Fecha',inp('edt','date','',today()))+fg('Laboratorio',inp('elab','text','Nombre lab',''))+fg('Médico',inp('edoc','text','Dr. ...',''))+'</div><div style="font-size:13px;font-weight:600;margin:10px 0 8px">Parámetros</div><div id="plist"></div><div style="background:var(--card);border-radius:8px;padding:12px;margin-bottom:10px"><div style="font-size:11px;color:var(--mut);margin-bottom:8px;font-weight:600">+ Agregar Parámetro Manual</div><div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:6px;margin-bottom:6px"><input id="pmn" placeholder="Nombre" style="font-size:12px"/><input id="pmv" type="number" placeholder="Valor" style="font-size:12px"/><input id="pmu" placeholder="Unidad" style="font-size:12px"/></div><div style="display:grid;grid-template-columns:2fr 1fr;gap:6px;margin-bottom:8px"><input id="pmr" placeholder="Referencia (ej: 70-100)" style="font-size:12px"/><select id="pms" style="font-size:12px"><option value="normal">Normal</option><option value="alto">Alto</option><option value="bajo">Bajo</option></select></div><button class="btn bp bf bs" onclick="addP()">+ Agregar</button></div>'+fg('Notas','<textarea id="ent" rows="2" style="resize:none" placeholder="Observaciones..."></textarea>')+'<button class="btn bp bf" onclick="saveExam()">💾 Guardar Examen</button></div>'));
+  om(modal('exam','Nuevo Examen','<div class="tb"><button class="tbb on" id="m_img" onclick="setFMode('img')">📷 Imágenes</button><button class="tbb" id="m_pdf" onclick="setFMode('pdf')">📄 PDF</button></div><div class="al ai" style="margin-bottom:10px" id="exam_tip">Sube fotos o capturas del resultado. Puedes seleccionar varias.</div><div style="background:var(--card);border:2px dashed var(--bdr);border-radius:10px;padding:20px;text-align:center;margin-bottom:10px" onclick="trigFI()"><input type="file" id="ef_img" accept="image/*" multiple onchange="handleImgs(event)" style="display:none"/><input type="file" id="ef_pdf" accept="application/pdf" onchange="handlePDF(event)" style="display:none"/><div id="efs"><div style="font-size:32px;margin-bottom:8px">📷</div><div style="font-size:13px;color:var(--mut);margin-bottom:10px">Toca para seleccionar</div><button class="btn bp" onclick="event.stopPropagation();trigFI()">Seleccionar archivo</button></div></div><div id="ipreview" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px"></div><button class="btn bf" id="ai_ex_btn" onclick="runExamAI()" style="display:none;background:var(--pur);color:#fff;margin-bottom:10px;font-size:14px;padding:12px">🤖 Extraer parámetros con IA</button><div id="ai_ex_prog" class="al aw" style="display:none">⏳ Analizando...</div><div id="es_mn" style="display:none"><div class="g2">'+fg('Tipo',sel('et3',Object.entries(ETL).map(function(e){return[e[0],e[1]]}),'sangre'))+fg('Fecha',inp('edt','date','',today()))+fg('Laboratorio',inp('elab','text','Nombre lab',''))+fg('Médico',inp('edoc','text','Dr. ...',''))+'</div><div style="font-size:13px;font-weight:600;margin:10px 0 8px">Parámetros</div><div id="plist"></div><div style="background:var(--card);border-radius:8px;padding:12px;margin-bottom:10px"><div style="font-size:11px;color:var(--mut);margin-bottom:8px;font-weight:600">+ Agregar Parámetro Manual</div><div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:6px;margin-bottom:6px"><input id="pmn" placeholder="Nombre" style="font-size:12px"/><input id="pmv" type="number" placeholder="Valor" style="font-size:12px"/><input id="pmu" placeholder="Unidad" style="font-size:12px"/></div><div style="display:grid;grid-template-columns:2fr 1fr;gap:6px;margin-bottom:8px"><input id="pmr" placeholder="Referencia (ej: 70-100)" style="font-size:12px"/><select id="pms" style="font-size:12px"><option value="normal">Normal</option><option value="alto">Alto</option><option value="bajo">Bajo</option></select></div><button class="btn bp bf bs" onclick="addP()">+ Agregar</button></div>'+fg('Notas','<textarea id="ent" rows="2" style="resize:none" placeholder="Observaciones..."></textarea>')+'<button class="btn bp bf" onclick="saveExam()">💾 Guardar Examen</button></div>'));
   renderPL();
 }
 function setFMode(m){
@@ -1282,7 +1282,7 @@ function rAgent(c){
     +'<div id="chatArea" style="flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:10px;padding-bottom:8px"></div>'
     +'<div style="padding-top:8px;border-top:1px solid var(--bdr)">'
     +'<div style="display:flex;gap:8px;align-items:flex-end">'
-    +'<textarea id="chatInput" rows="2" placeholder="Escribe tu mensaje..." style="flex:1;resize:none;font-size:14px;padding:10px 12px;border-radius:10px" onkeydown="if(event.key==="Enter"&&!event.shiftKey){event.preventDefault();sendAgentMsg()}"></textarea>'
+    +'<textarea id="chatInput" rows="2" placeholder="Escribe tu mensaje..." style="flex:1;resize:none;font-size:14px;padding:10px 12px;border-radius:10px" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendAgentMsg()}"></textarea>'
     +'<button class="btn bp" onclick="sendAgentMsg()" style="height:44px;padding:0 16px;white-space:nowrap">Enviar</button>'
     +'</div>'
     +'<button class="btn bg" onclick="newConversation()" style="width:100%;margin-top:8px;font-size:12px">Nueva conversación</button>'
